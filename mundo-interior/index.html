@@ -48,6 +48,10 @@ p{margin:0}
 .note{border-left:4px solid var(--sun);background:var(--sun-soft);padding:16px 18px;border-radius:0 10px 10px 0;font-size:15px;display:flex;flex-direction:column;gap:8px}
 .note.alert{border-color:var(--clay);background:var(--clay-soft)}
 .note strong{color:var(--ink)}
+.how{display:flex;flex-direction:column;gap:12px}
+.how h3{margin-bottom:4px}
+.how div{background:var(--tint);border-left:4px solid var(--teal-2);border-radius:0 12px 12px 0;padding:14px 18px;font-size:16px;color:var(--ink-soft)}
+.how b{color:var(--teal);font-weight:600}
 .blocks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .blocks div{border-top:2px solid var(--teal-2);padding-top:10px;font-size:14px;color:var(--ink-soft)}
 .blocks b{display:block;color:var(--teal);font-size:15px}
@@ -256,10 +260,12 @@ function intro(){spiral(0);render(`
  <span class="eyebrow">Un ejercicio de autoobservación</span>
  <h1>Estado del <em>Mundo Interior</em></h1>
  <p class="lead">Un mapa de lectura rápida sobre cómo te has sentido en las últimas dos semanas. No evalúa tu personalidad: te ayuda a mirar dónde estás para elegir el acompañamiento que mejor te sirve. Al terminar recibes tu resultado y un ejercicio para hacer mientras nos vemos.</p>
- <div class="blocks">
-  <div><b>Tu momento</b>2 preguntas</div>
-  <div><b>Tu energía</b>12 preguntas de sí o no</div>
-  <div><b>Cómo te has sentido</b>12 preguntas</div></div>
+ <div class="how">
+  <h3>Cómo funciona este termómetro</h3>
+  <div><b>Bloque 1 · Tu momento.</b> Dos preguntas que identifican tu arquetipo: la forma particular en que tú vives la carga.</div>
+  <div><b>Bloque 2 · Indicadores de agotamiento.</b> Doce señales de sobrecarga que respondes con SÍ o NO según tu realidad de las últimas dos semanas.</div>
+  <div><b>Bloque 3 · Cómo te has sentido.</b> Doce preguntas inspiradas en el Cuestionario de Salud General de Goldberg (GHQ-12). Este bloque define tu nivel y tu ruta.</div>
+  <div><b>Tu resultado.</b> Al terminar ves tu nivel, tu arquetipo, un ejercicio de arte y respiración para hacer mientras nos vemos, y el camino de acompañamiento que te propongo.</div></div>
  <div class="note"><strong>Antes de empezar</strong><span>Este ejercicio no es un diagnóstico médico ni psicológico y no reemplaza una cita con psicología o psiquiatría. Si estás en un proceso con un profesional de la salud, mi trabajo acompaña y complementa ese camino.</span><span>Si en este momento sientes que no puedes más, busca ayuda ahora: Línea 106 (Bogotá) · Línea Púrpura 018000 112 137 (mujeres) · 123 (emergencias).</span></div>
  <p class="hint">Te tomará unos 5 minutos. No hay respuestas correctas ni incorrectas.</p>
  <button class="btn" id="go" data-focus>Empezar</button>`);
