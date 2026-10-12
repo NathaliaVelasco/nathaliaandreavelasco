@@ -142,7 +142,7 @@ document.getElementById('f').addEventListener('submit', function (e) {
   if (!v('nombre')) { err.textContent = 'Escribe tu nombre para poder responderte.'; err.hidden = false; document.getElementById('nombre').focus(); return; }
   if (!v('correo') && !v('tel')) { err.textContent = 'Déjame un correo o un teléfono para poder responderte.'; err.hidden = false; document.getElementById('correo').focus(); return; }
   err.hidden = true;
-  var t = 'Hola Nathalia, soy ' + v('nombre') + '.\nMe interesa: ' + v('interes') + '.';
+  var t = 'Hola Nathalia, soy ' + v('nombre') + '. Visité tu página y me interesa: ' + v('interes') + '.';
   if (v('msg')) t += '\n\n' + v('msg');
   if (v('correo')) t += '\n\nCorreo: ' + v('correo');
   if (v('tel')) t += '\nTeléfono: ' + v('tel');
