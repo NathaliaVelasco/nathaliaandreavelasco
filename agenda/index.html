@@ -105,7 +105,7 @@ button.send:hover{background:#CC7A10}
     <button class="send" id="sendbtn" type="submit">Enviar mensaje →</button>
     <div class="thanks" id="thanks" hidden>
       <h2>Gracias, ya recibí tu mensaje</h2>
-      <p>Te escribiré personalmente muy pronto. Si prefieres no esperar, escríbeme por WhatsApp.</p>
+      <p>Te escribiré personalmente muy pronto. Si WhatsApp no se abrió, usa este botón para enviarme tu mensaje.</p>
       <a class="wa-btn" id="wa-after" href="https://wa.me/573208857608" target="_blank" rel="noopener">Escribirme por WhatsApp</a>
     </div>
     <p class="alt">También puedes escribir directo a <a href="mailto:nathalia.v.mentora@gmail.com">nathalia.v.mentora@gmail.com</a></p>
@@ -132,8 +132,8 @@ button.send:hover{background:#CC7A10}
 
 <script>
 // Pega aquí la dirección de la aplicación web de Google Apps Script (termina en /exec).
-// Mientras esté vacía, el formulario abre WhatsApp con el mensaje escrito.
-var HOJA_URL = '';
+// Si se deja vacía, el formulario solo abre WhatsApp con el mensaje escrito.
+var HOJA_URL = 'https://script.google.com/macros/s/AKfycbwZ6nFjWazIbqxW4BBKExnCR7ssLLMI3WtYbQ75YPI0gMsZTqdHkkey2c-vKxIP7OtncA/exec';
 
 document.getElementById('f').addEventListener('submit', function (e) {
   e.preventDefault();
@@ -150,23 +150,17 @@ document.getElementById('f').addEventListener('submit', function (e) {
 
   if (!HOJA_URL) { window.open(wa, '_blank', 'noopener'); return; }
 
-  var btn = document.getElementById('sendbtn');
-  btn.disabled = true; btn.textContent = 'Enviando…';
+  // Abre WhatsApp de inmediato (dentro del clic, para que el navegador no lo bloquee)
+  // y guarda la solicitud en la hoja al mismo tiempo.
+  window.open(wa, '_blank', 'noopener');
   var datos = new URLSearchParams({
     nombre: v('nombre'), correo: v('correo'), tel: v('tel'),
     interes: v('interes'), msg: v('msg'), web: v('web'), origen: 'Agenda tu sesión'
   });
-  fetch(HOJA_URL, { method: 'POST', mode: 'no-cors', body: datos })
-    .then(function () {
-      document.querySelectorAll('#f > :not(#thanks):not(.alt)').forEach(function (el) { el.hidden = true; });
-      document.getElementById('wa-after').href = wa;
-      document.getElementById('thanks').hidden = false;
-    })
-    .catch(function () {
-      btn.disabled = false; btn.textContent = 'Enviar mensaje →';
-      err.textContent = 'No pude enviar tu mensaje. Revisa tu conexión e inténtalo de nuevo, o escríbeme por WhatsApp.';
-      err.hidden = false;
-    });
+  fetch(HOJA_URL, { method: 'POST', mode: 'no-cors', body: datos }).catch(function () {});
+  document.querySelectorAll('#f > :not(#thanks):not(.alt)').forEach(function (el) { el.hidden = true; });
+  document.getElementById('wa-after').href = wa;
+  document.getElementById('thanks').hidden = false;
 });
 </script>
 </body>
