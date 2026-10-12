@@ -146,6 +146,17 @@ p{margin:0}
 .company .list li::before{background:var(--peach)}
 @media (max-width:860px){.company{grid-template-columns:1fr}.company .text{padding:28px 22px}}
 .btn.peach{background:var(--peach);color:var(--ink)}
+.route-band{background:var(--ink);padding-block:88px}
+.route-band .wrap{display:flex;flex-direction:column;gap:44px}
+.route5{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;position:relative}
+.route5::before{content:"";position:absolute;left:10%;right:10%;top:34px;border-top:3px dashed var(--peach);opacity:.7}
+.route5 li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
+.route5 .dot{width:68px;height:68px;border-radius:50%;background:var(--ink);border:3px solid var(--peach);color:var(--peach);display:grid;place-items:center;font-size:28px;font-weight:300;margin-bottom:6px}
+.route5 .wk{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--peach)}
+.route5 b{color:var(--white);font-size:18px;line-height:1.25}
+.route5 .tx{color:#C9DEDD;font-size:15px}
+@media (max-width:900px){.route5{grid-template-columns:1fr;gap:26px}.route5::before{left:33px;right:auto;top:20px;bottom:20px;border-top:0;border-left:3px dashed var(--peach)}.route5 li{display:grid;grid-template-columns:68px minmax(0,1fr);text-align:left;align-items:start;column-gap:18px;row-gap:4px}.route5 .dot{grid-row:span 3;margin:0}}
+
 </style>
 </head>
 <body>
@@ -200,19 +211,19 @@ p{margin:0}
   </div>
 </section>
 
-<section class="band sand">
+<section class="route-band">
   <div class="wrap">
-    <div style="display:flex;flex-direction:column;gap:12px;max-width:720px">
-      <p class="eyebrow">Cómo funciona</p>
-      <h2>Cinco semanas, <span class="accent">paso a paso</span></h2>
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:780px">
+      <p class="eyebrow" style="color:var(--peach)">El enfoque · El Borde Visible™</p>
+      <h2 style="color:var(--white)">Tu ruta de <span class="accent" style="color:var(--peach)">transición regenerativa</span></h2>
+      <p style="color:#D9EDEC">El programa une neurociencia, arte y aprendizaje experiencial: no se trata de escuchar sobre el cambio, sino de habitarlo. Cinco semanas, cinco pasos, una ruta progresiva del autoconocimiento a la acción concreta.</p>
     </div>
-    <div class="map-note"><b>Todo empieza con tu mapa</b><span>Antes de la primera sesión respondes el Diagnóstico Profundo. Ese mapa es tu diagnóstico personal y el punto de partida de tu bitácora.</span></div>
-    <ol class="arc">
-      <li><span class="n">Semana 1 · Presencial</span><b>Apertura</b><span>Leemos tu mapa, nombramos tu transición y armamos tu matriz de objetivos.</span></li>
-      <li><span class="n">Semana 2 · Autónoma</span><b>Del impostor al merecimiento</b><span>Reconocer tu valor real.</span></li>
-      <li><span class="n">Semana 3 · Autónoma</span><b>Autogestión sin culpa</b><span>Límites sanos, pausas y decisiones propias.</span></li>
-      <li><span class="n">Semana 4 · Autónoma</span><b>Acción imperfecta</b><span>Un primer prototipo de tu nueva etapa.</span></li>
-      <li><span class="n">Semana 5 · Presencial</span><b>Cierre</b><span>Tu ruta a 3, 6 y 12 meses y tu protocolo de sostenibilidad.</span></li>
+    <ol class="route5">
+      <li><span class="dot">1</span><span class="wk">Semana 1 · Presencial</span><b>El Suelo Original</b><span class="tx">Desaprender mandatos invisibles y evaluar tus barreras internas, a partir del mapa de tu Diagnóstico Profundo.</span></li>
+      <li><span class="dot">2</span><span class="wk">Semana 2 · Autónoma</span><b>El Espejo de Reconocimiento</b><span class="tx">Recibir la mirada honesta de tu entorno para quebrar al impostor.</span></li>
+      <li><span class="dot">3</span><span class="wk">Semana 3 · Autónoma</span><b>La Cartografía de la Elección</b><span class="tx">Reclamar tu libertad sobre tu actitud y tu conducta.</span></li>
+      <li><span class="dot">4</span><span class="wk">Semana 4 · Autónoma</span><b>La Ecología del Merecimiento</b><span class="tx">Enraizarte en el presente: eres suficiente por existir.</span></li>
+      <li><span class="dot">5</span><span class="wk">Semana 5 · Presencial</span><b>El Diseño del Paisaje</b><span class="tx">Romper la parálisis con la acción imperfecta, tu agenda regenerativa y tu ruta a 3, 6 y 12 meses.</span></li>
     </ol>
   </div>
 </section>
