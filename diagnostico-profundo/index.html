@@ -273,7 +273,6 @@ function welcome(){
    '<label class="field" for="f-name">Tu nombre<input id="f-name" autocomplete="name" placeholder="Así aparecerá en tu mapa" value="'+esc(st.name)+'" data-focus></label>'+
    '<label class="field" for="f-arch">Tu arquetipo en el ejercicio Mundo Interior (opcional)<select id="f-arch"><option value="">No lo sé o prefiero no decirlo</option>'+
      Object.keys(ARCH).map(function(k){ return '<option value="'+k+'"'+(st.arch===k?' selected':'')+'>'+ARCH[k].n+'</option>'; }).join('')+'</select></label>'+
-   '<div class="note"><span>Este ejercicio no es un diagnóstico médico ni psicológico y no reemplaza la atención en psicología o psiquiatría. Es una herramienta de tu proceso de mentoría con Nathalia.</span></div>'+
    '<p class="hint" id="err" hidden style="color:var(--clay)"></p>'+
    '<div class="row"><button class="btn sun" id="start">Empezar</button></div>');
   if(resume){
