@@ -142,7 +142,7 @@ footer{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--line);pad
     <svg id="spiral" viewBox="0 0 64 64" aria-hidden="true"><path class="bg"/><path class="fg"/></svg>
   </header>
   <main id="app" class="stack" aria-live="polite"></main>
-  <footer>Este ejercicio está inspirado en el Cuestionario de Salud General de Goldberg (GHQ-12) y en las dimensiones del desgaste de Maslach. No es una prueba estandarizada ni un diagnóstico médico o psicológico, y no reemplaza una cita con psicología o psiquiatría. Tus respuestas no se guardan. Solo si tú lo pides te enviamos el resultado a tu correo, y solo si lo autorizas Nathalia recibe un resumen. <a href="https://nathaliavelasco.github.io/nathaliaandreavelasco/privacidad/" target="_blank" rel="noopener" style="color:inherit">Política de privacidad</a>.</footer>
+  <footer>Este ejercicio está inspirado en el Cuestionario de Salud General de Goldberg (GHQ-12) y en las dimensiones del desgaste de Maslach. No es una prueba estandarizada ni un diagnóstico médico o psicológico, y no reemplaza una cita con psicología o con tu médico. Tus respuestas no se guardan. Solo si tú lo pides te enviamos el resultado a tu correo, y solo si lo autorizas Nathalia recibe un resumen. <a href="https://nathaliavelasco.github.io/nathaliaandreavelasco/privacidad/" target="_blank" rel="noopener" style="color:inherit">Política de privacidad</a>.</footer>
 </div>
 
 <script>
@@ -232,7 +232,7 @@ const MATRIX=[
 const LEVELS=[
  {name:"Cansancio que avisa",msg:"Tu casa interior sigue en pie, pero el ruido de los días empieza a desgastar las esquinas. Tu cuerpo y tu mente aún sostienen el ritmo, y este es el mejor momento para cuidarte: antes de que el cansancio decida por ti."},
  {name:"Carga que pesa",msg:"Estás sosteniendo más de lo que tu cuerpo y tu mente pueden cargar solos. No es una falla tuya: es una señal de que necesitas una pausa consciente y un proceso que te ayude a ordenar lo que pesa."},
- {name:"Necesitas más apoyo",msg:"Lo que estás viviendo merece más de una mano. Te recomiendo pedir una cita con psicología o psiquiatría, o hablar con tu médico: ese acompañamiento es el primero. Lo que te propongo aquí lo complementa."}];
+ {name:"Necesitas más apoyo",msg:"Lo que estás viviendo merece más de una mano. Te recomiendo pedir una cita con psicología o hablar con tu médico: ese acompañamiento es el primero. Lo que te propongo aquí lo complementa."}];
 
 // "Mientras nos vemos" — exercises by level
 const EX=[
@@ -279,7 +279,7 @@ function intro(){spiral(0);render(`
   <div><b>Bloque 2 · Indicadores de agotamiento.</b> Doce señales de sobrecarga que respondes con SÍ o NO según tu realidad de las últimas dos semanas.</div>
   <div><b>Bloque 3 · Cómo te has sentido.</b> Doce preguntas inspiradas en el Cuestionario de Salud General de Goldberg (GHQ-12). Este bloque define tu nivel y tu ruta.</div>
   <div><b>Tu resultado.</b> Al terminar ves tu nivel, tu arquetipo, un ejercicio de arte y respiración para hacer mientras nos vemos, y el camino de acompañamiento que te propongo.</div></div>
- <div class="note"><strong>Antes de empezar</strong><span>Este ejercicio no es un diagnóstico médico ni psicológico y no reemplaza una cita con psicología o psiquiatría. Si estás en un proceso con un profesional de la salud, mi trabajo acompaña y complementa ese camino.</span><span>Si en este momento sientes que no puedes más, busca ayuda ahora: Línea 106 (Bogotá) · Línea Púrpura 018000 112 137 (mujeres) · 123 (emergencias).</span></div>
+ <div class="note"><strong>Antes de empezar</strong><span>Este ejercicio no es un diagnóstico médico ni psicológico y no reemplaza una cita con psicología o con tu médico. Si estás en un proceso con un profesional de la salud, mi trabajo acompaña y complementa ese camino.</span><span>Si en este momento sientes que no puedes más, busca ayuda ahora: Línea 106 (Bogotá) · Línea Púrpura 018000 112 137 (mujeres) · 123 (emergencias).</span></div>
  <p class="hint">Te tomará unos 5 minutos. No hay respuestas correctas ni incorrectas.</p>
  <button class="btn" id="go" data-focus>Empezar</button>`);
  document.getElementById("go").onclick=()=>go(0);}
@@ -330,7 +330,7 @@ function result(){
  const r=compute(), A=ARCH[r.arch], Lv=LEVELS[r.lvl-1], E=EX[r.lvl-1]; spiral(1);
  let path="";
  if(r.lvl===3){
-  path=`<div class="step first"><span class="n">1</span><p><b>Una cita con psicología, psiquiatría o tu médico</b><small>Es el primer acompañamiento. Si ya estás en un proceso, cuéntale a tu profesional cómo te sientes hoy.</small></p></div>
+  path=`<div class="step first"><span class="n">1</span><p><b>Una cita con psicología o tu médico</b><small>Es el primer acompañamiento. Si ya estás en un proceso, cuéntale a tu profesional cómo te sientes hoy.</small></p></div>
    <div class="step"><span class="n">2</span><p><b>Oasis Regenerativo, como complemento</b><small>Un espacio de drenaje emocional: una liberación consciente y segura de la tensión, la frustración y la carga acumuladas, que ayuda a que el estrés no se convierta en colapso físico y mental. Un camino para reparar y regenerar tu energía. Técnica sugerida para ti: ${A.oasis}.</small></p></div>
    <div class="step"><span class="n">3</span><p><b>Después, El Despertar Interior</b><small>Cuando ya cuentes con acompañamiento profesional, un proceso de 6 sesiones para ordenar lo que pesa.</small></p></div>`;
  } else {
@@ -391,8 +391,8 @@ function result(){
    <a class="btn sun" href="https://wa.me/${WA}?text=${waText}" target="_blank" rel="noopener">Escribir por WhatsApp</a>
    <p class="hint" style="font-style:normal">WhatsApp: <span style="user-select:all">320 885 7608</span></p>
   </div>
-  <div class="note"><strong>Recuerda</strong><span>Este ejercicio no es un diagnóstico médico ni psicológico y no reemplaza una cita con psicología o psiquiatría. Es un ejercicio complementario para elegir juntos el acompañamiento que mejor te sirve.</span></div>
-  <button class="link" id="again">Volver a hacer el ejercicio</button>`);
+  <div class="note"><strong>Recuerda</strong><span>Este ejercicio no es un diagnóstico médico ni psicológico y no reemplaza una cita con psicología o con tu médico. Es un ejercicio complementario para elegir juntos el acompañamiento que mejor te sirve.</span></div>
+  <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center"><a class="btn" href="../">Volver al inicio</a><button class="link" id="again">Volver a hacer el ejercicio</button></div>`);
  E.cards.forEach((c,k)=>{
   const cb=document.getElementById("done"+k); cb.onchange=()=>document.getElementById("card"+k).classList.toggle("is-done",cb.checked);
   if(c.pacer)document.getElementById("pb"+k).onclick=e=>breathe(k,c.pacer,e.currentTarget);
