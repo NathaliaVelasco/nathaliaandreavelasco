@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Escáner del Oasis · Nathalia Andrea Velasco</title>
+<meta name="description" content="Cinco preguntas sensoriales para descubrir qué ruta de alivio necesita hoy tu cuerpo en el Oasis Regenerativo.">
+<meta property="og:title" content="Escáner del Oasis · Nathalia Andrea Velasco">
+<meta property="og:description" content="Estás a un paso de tu Oasis. Descubre la ruta de alivio que tu cuerpo necesita hoy.">
+<meta property="og:image" content="../img/oasis/portada.webp">
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* Layout: a calm single column, one question per screen, like breathing in steps; a thin bar of four colors (the four routes) fills as you go. */
+:root{
+  --paper:#FFFCF8; --sand:#FBF3EA; --mint:#EAF4F3; --ink:#0B3B3D; --ink-2:#234C4E; --soft:#5D7778;
+  --sun:#E38C19; --sun-dark:#B96F0C; --peach:#F6A27A; --clay:#8C3300; --line:#E8DCCF; --white:#FFFFFF;
+  --a:#E38C19; --b:#167074; --c:#7FA88A; --d:#C2547A;
+  --font:'Raleway',ui-sans-serif,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.6}
+img{display:block;max-width:100%}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.top{max-width:760px;margin:0 auto;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.top img{height:46px;width:auto}
+.top a.back{font-size:15px;font-weight:500;text-decoration:none}
+main{max-width:760px;margin:0 auto;padding:8px 20px 72px}
+.stack{display:flex;flex-direction:column;gap:18px}
+.fade{animation:fade .35s ease both}
+@keyframes fade{from{opacity:.001;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eyebrow{margin:0;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--clay)}
+h1,h2{margin:0;text-wrap:balance}
+h1{font-weight:300;font-size:clamp(36px,6vw,56px);line-height:1.08}
+h2{font-weight:500;font-size:clamp(22px,4.2vw,28px);line-height:1.3}
+.accent{font-style:italic;font-weight:500;color:var(--sun)}
+p{margin:0}
+.lead{font-size:19px;color:var(--ink-2)}
+.hint{font-size:15px;color:var(--soft);font-style:italic}
+.routes4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.routes4 figure{margin:0;display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink-2)}
+.routes4 img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px}
+@media (max-width:520px){.routes4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.btn{font-family:inherit;font-size:16px;font-weight:700;border:0;border-radius:999px;padding:15px 28px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.btn.sun{background:var(--sun);color:var(--white);box-shadow:0 10px 24px rgba(227,140,25,.3)}
+.btn.sun:hover{background:var(--sun-dark)}
+.btn.ink{background:var(--ink);color:var(--white)}
+.btn.line{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}
+.btn:disabled{opacity:.55;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.meta{display:flex;justify-content:space-between;font-size:13px;color:var(--soft);gap:12px}
+.bar{height:6px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--a),var(--b),var(--c),var(--d));transition:width .4s}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{font-family:inherit;font-size:17px;text-align:left;background:var(--white);color:var(--ink);border:1.5px solid var(--line);border-radius:16px;padding:16px 18px;cursor:pointer;line-height:1.45;display:grid;grid-template-columns:24px minmax(0,1fr);gap:14px;align-items:start;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--ink-2)}
+.opt .dot{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);margin-top:1px}
+.opt.sq .dot{border-radius:6px}
+.opt[aria-pressed="true"]{border-color:var(--sun);background:#FDF1E2}
+.opt[aria-pressed="true"] .dot{background:var(--sun);border-color:var(--sun);box-shadow:inset 0 0 0 4px #FDF1E2}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.link{font-family:inherit;font-size:15px;background:none;border:0;color:var(--soft);text-decoration:underline;text-underline-offset:3px;padding:6px 0;cursor:pointer}
+.slider{background:var(--white);border:1.5px solid var(--line);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.slider label{font-weight:600;display:flex;justify-content:space-between;gap:12px}
+.slider output{font-variant-numeric:tabular-nums;color:var(--sun);font-weight:700;min-width:2ch;text-align:right}
+.slider input{width:100%;accent-color:var(--sun)}
+.slider .ends{display:flex;justify-content:space-between;font-size:13px;color:var(--soft)}
+/* result */
+.result{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:28px;align-items:start}
+.result img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px}
+@media (max-width:640px){.result{grid-template-columns:1fr}}
+.promise{font-size:20px;font-style:italic;color:var(--ink-2);border-left:4px solid var(--sun);padding-left:14px}
+.tally{display:flex;gap:6px;align-items:flex-end;height:54px}
+.tally div{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--soft)}
+.tally span{display:block;width:100%;border-radius:6px 6px 0 0}
+.note{border-left:4px solid var(--sun);background:#FDF1E2;border-radius:0 12px 12px 0;padding:14px 18px;font-size:15px;display:flex;flex-direction:column;gap:6px}
+.note.alert{border-color:var(--clay);background:#F8E6DC}
+.save{background:var(--mint);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:600}
+.field input{font:inherit;font-weight:400;color:var(--ink);background:var(--white);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.two{grid-template-columns:1fr}}
+.chk{display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;align-items:start;font-size:15px;cursor:pointer}
+.chk input{width:20px;height:20px;margin-top:2px;accent-color:var(--sun)}
+.msg{font-size:15px;font-weight:600;color:var(--b)}
+.msg.bad{color:var(--clay)}
+footer{max-width:760px;margin:0 auto;padding:0 20px 48px;font-size:14px;color:var(--soft)}
+footer a{color:var(--soft)}
+@media (prefers-reduced-motion:reduce){.fade{animation:none}.bar i{transition:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <a href="../"><img src="../img/firma.png" alt="Nathalia Velasco"></a>
+  <a class="back" href="../oasis/">← El Oasis</a>
+</header>
+<main id="app" aria-live="polite"></main>
+<footer>El escáner te ayuda a elegir una ruta de alivio; no es un diagnóstico médico ni psicológico. Nathalia confirma la técnica contigo en la bienvenida. Si sientes que no puedes más: Línea 106 (Bogotá) · Línea Púrpura 018000 112 137 · 123. <a href="../privacidad/">Política de privacidad</a>.</footer>
+
+<script>
+var HOJA_URL = 'https://script.google.com/macros/s/AKfycbx8qJ0pikHz3DbuXeIbGTf-Hten_4Avc0doCQbrDvX9YKFF3yeFdxZ95u09s9fNk-BS3A/exec';
+var WA = '573208857608';
+var IMG = '../img/oasis/';
+
+var TECH = {
+  A:{n:'Bio-Liberación Facial Emocional', img:'facial', color:'var(--a)', p:'Vamos a soltar la máscara del estrés, aflojar la rigidez de tu rostro y devolverle su levedad.', d:'Un masaje que relaja los músculos de la cara y aligera el peso que se refleja en ella.', virtual:false},
+  B:{n:'El Centro eres Tú', img:'centro', color:'var(--b)', p:'Vamos a devolverle el orden a tu cuerpo con reflexología suave, soltando los nudos donde se estancó tu energía.', d:'Reflexología suave y digitopuntura en manos, pies o cabeza.', virtual:false},
+  C:{n:'Cuerpo Consciente & Aromas', img:'aromas', color:'var(--c)', p:'Vamos a bajar la alarma de tu cuerpo. Tu único trabajo en estos 60 minutos será respirar.', d:'Un recorrido sensorial con aceites esenciales y respiración profunda.', virtual:true},
+  D:{n:'Trazo en Movimiento', img:'trazo', color:'var(--d)', p:'Tu mente lógica no manda aquí. Vamos a usar el color y la pintura libre para sacudir la frustración y vaciar el caos sobre el papel.', d:'Color y movimiento libre de la pintura, inspirado en Jackson Pollock.', virtual:true}
+};
+var CARE = [
+  {k:'tacto', t:'Prefiero que no me toquen.'},
+  {k:'aromas', t:'Me molestan los aromas fuertes o tengo alergias.'},
+  {k:'embarazo', t:'Estoy en embarazo.'},
+  {k:'condicion', t:'Tengo una lesión, una condición médica o la piel sensible.'}
+];
+var ARCH = [
+  ['Líder al Borde','A'],['Promovida o Promovido Autoexigente','D'],['Desembarcada o Desembarcado','C'],
+  ['Tejedora o Tejedor de Visiones','B'],['Corazón sin Palabras','D']
+];
+var Q = [
+  ['Si cierras los ojos ahora mismo, ¿dónde sientes el mayor peso o tensión?',[
+    'En el rostro, la frente o la mandíbula, apretada y rígida.',
+    'En las manos, los pies o una tensión difusa en todo el cuerpo que me hace sentir desconexión.',
+    'En el pecho, como una opresión, o en el estómago, como un nudo que no me deja respirar.',
+    'Siento energía acumulada, inquietud en las manos o rigidez en hombros y cuello, con ganas de sacudirme.']],
+  ['¿Cómo describirías el ruido en tu mente en este momento?',[
+    'Siento la mente embotada, cansada de sostener la apariencia de que “todo está bien”.',
+    'Un caos total: mil ideas, pendientes e hilos sueltos cruzándose, y no logro aterrizar ninguno.',
+    'Pensamientos que dan vueltas, una preocupación que me mantiene en alerta constante.',
+    'Frustración acumulada, ganas de apagar las pantallas y bloquear las exigencias del entorno.']],
+  ['¿Qué le urge experimentar a tu cuerpo para sentir alivio?',[
+    'Descansar el rostro, soltar la expresión y cerrar los ojos por completo.',
+    'Sentir la tierra, que presionen mis puntos de tensión y me devuelvan el orden corporal.',
+    'Respirar profundo, oler algo limpio y natural, y sentir que mi corazón baja el ritmo.',
+    'Descargar la presión acumulada, liberar la energía contenida de forma activa y sin reglas.']],
+  ['Frente al estrés que estás viviendo hoy, tu reacción más frecuente es…',[
+    'Guardármelo todo, tragarme la tensión y seguir adelante mostrando seguridad.',
+    'Sentir que el desorden me abruma y pierdo el control de mis rutinas.',
+    'Sentir miedo o angustia que me paraliza ante las dificultades.',
+    'Sentir irritación, intolerancia o impaciencia con el entorno o conmigo.']],
+  ['¿Qué te da más paz imaginar en tus manos ahora?',[
+    'Texturas suaves, cremas botánicas y un descanso profundo para mis ojos.',
+    'Un contacto firme, un mapa de puntos de presión y sentir mis manos y pies cuidados.',
+    'Un aceite esencial de la naturaleza y una guía para respirar.',
+    'Pinceles, pintura libre y un lienzo en blanco para manchar y vaciar lo que llevo dentro.']]
+];
+var L = 'ABCD';
+var STEPS = 3 + Q.length; // cuidado, arquetipo, punto de partida, 5 preguntas
+
+var st = {care:[], arch:-1, start:{tension:5,ruido:5,calma:5}, ans:[]};
+var app = document.getElementById('app');
+
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function render(h){app.innerHTML='<div class="stack fade">'+h+'</div>';window.scrollTo({top:0});var f=app.querySelector('[data-focus]');if(f)f.focus({preventScroll:true})}
+function head(i,label){return '<div class="meta"><span>'+label+'</span><span>'+(i+1)+' de '+STEPS+'</span></div><div class="bar"><i style="width:'+((i)/STEPS*100).toFixed(1)+'%"></i></div>'}
+function navBack(i){return '<div class="nav"><button class="link" id="back">Anterior</button></div>'}
+
+function intro(){
+  render('<p class="eyebrow">Escáner del Oasis</p>'+
+  '<h1>Estás a un paso de <span class="accent">tu Oasis</span></h1>'+
+  '<p class="lead">Para saber qué ruta necesitan hoy tu cuerpo y tu mente para aligerar la carga, responde según cómo te sientes en este instante. Te tomará unos 2 minutos.</p>'+
+  '<div class="routes4">'+L.split('').map(function(k){return '<figure><img src="'+IMG+TECH[k].img+'.webp" alt="">'+TECH[k].n+'</figure>'}).join('')+'</div>'+
+  '<p class="hint">No hay respuestas correctas. Al final verás la ruta sugerida y, si quieres, se la envías a Nathalia para tu sesión.</p>'+
+  '<div class="row"><button class="btn sun" id="go" data-focus>Empezar</button></div>');
+  document.getElementById('go').onclick=function(){care()};
+}
+
+function care(){
+  render(head(0,'Antes de empezar')+
+  '<h2>¿Hay algo que debamos cuidar?</h2><p class="hint">Puedes marcar varias, o ninguna.</p>'+
+  '<div class="opts">'+CARE.map(function(c,i){return '<button class="opt sq" data-k="'+c.k+'" aria-pressed="'+(st.care.indexOf(c.k)>=0)+'"'+(i===0?' data-focus':'')+'><span class="dot"></span><span>'+c.t+'</span></button>'}).join('')+'</div>'+
+  '<div class="nav"><button class="link" id="back">Volver</button><button class="btn ink" id="next">Continuar</button></div>');
+  app.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){var k=b.dataset.k,i=st.care.indexOf(k);if(i>=0)st.care.splice(i,1);else st.care.push(k);b.setAttribute('aria-pressed',i<0)}});
+  document.getElementById('back').onclick=intro;
+  document.getElementById('next').onclick=arch;
+}
+
+function arch(){
+  var opts=ARCH.map(function(a,i){return [a[0],i]}).concat([['Aún no lo he hecho o no lo recuerdo',-2]]);
+  render(head(1,'Tu arquetipo')+
+  '<h2>Si ya hiciste el ejercicio <a href="../mundo-interior/" target="_blank" rel="noopener">Mundo Interior</a>, ¿con qué arquetipo te identificaste?</h2>'+
+  '<div class="opts">'+opts.map(function(o,i){return '<button class="opt" data-v="'+o[1]+'" aria-pressed="'+(st.arch===o[1])+'"'+(i===0?' data-focus':'')+'><span class="dot"></span><span>'+o[0]+'</span></button>'}).join('')+'</div>'+
+  navBack());
+  app.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){st.arch=+b.dataset.v;mark(b);setTimeout(start,240)}});
+  document.getElementById('back').onclick=care;
+}
+
+function start(){
+  var S=[['tension','¿Cuánta tensión sientes en tu cuerpo?'],['ruido','¿Cuánto ruido hay en tu mente?'],['calma','¿Cuánta calma sientes?']];
+  render(head(2,'Tu punto de partida')+
+  '<h2>¿Cómo llegas ahora?</h2><p class="hint">Mueve cada barra de 0 (nada) a 10 (muchísimo). Al final de tu sesión te haremos las mismas preguntas.</p>'+
+  S.map(function(x,i){return '<div class="slider"><label for="s-'+x[0]+'"><span>'+x[1]+'</span><output id="o-'+x[0]+'">'+st.start[x[0]]+'</output></label><input type="range" min="0" max="10" step="1" id="s-'+x[0]+'" value="'+st.start[x[0]]+'"'+(i===0?' data-focus':'')+'><div class="ends"><span>Nada</span><span>Muchísimo</span></div></div>'}).join('')+
+  '<div class="nav"><button class="link" id="back">Anterior</button><button class="btn ink" id="next">Continuar</button></div>');
+  S.forEach(function(x){var el=document.getElementById('s-'+x[0]);el.oninput=function(){st.start[x[0]]=+el.value;document.getElementById('o-'+x[0]).textContent=el.value}});
+  document.getElementById('back').onclick=arch;
+  document.getElementById('next').onclick=function(){question(0)};
+}
+
+function question(n){
+  var q=Q[n];
+  render(head(3+n,'Pregunta '+(n+1)+' de 5')+
+  '<h2>'+q[0]+'</h2>'+
+  '<div class="opts">'+q[1].map(function(t,i){return '<button class="opt" data-v="'+i+'" aria-pressed="'+(st.ans[n]===i)+'"'+(i===0?' data-focus':'')+'><span class="dot"></span><span>'+t+'</span></button>'}).join('')+'</div>'+
+  navBack());
+  app.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){st.ans[n]=+b.dataset.v;mark(b);setTimeout(function(){n<Q.length-1?question(n+1):result()},240)}});
+  document.getElementById('back').onclick=function(){n===0?start():question(n-1)};
+}
+function mark(b){b.parentNode.querySelectorAll('.opt').forEach(function(x){x.setAttribute('aria-pressed',x===b)})}
+
+// Clave interna: mayoría de letras, desempate por arquetipo y luego por la pregunta 3; el chequeo de cuidado manda.
+function decide(){
+  var count={A:0,B:0,C:0,D:0};
+  st.ans.forEach(function(i){count[L[i]]++});
+  var allowed=['A','B','C','D'], why=[];
+  if(st.care.indexOf('tacto')>=0){allowed=allowed.filter(function(k){return k==='C'||k==='D'});why.push('Como prefieres que no te toquen, tu ruta es sin contacto físico.')}
+  if(st.care.indexOf('aromas')>=0){allowed=allowed.filter(function(k){return k!=='C'});why.push('Como los aromas fuertes te molestan, dejamos los aceites por fuera.')}
+  if(st.care.indexOf('embarazo')>=0){allowed=allowed.filter(function(k){return k!=='B'&&k!=='C'});why.push('Por tu embarazo, algunos aceites y puntos de presión no son recomendables; esta ruta es segura para ti.')}
+  if(!allowed.length)allowed=['D'];
+  var max=Math.max.apply(null,allowed.map(function(k){return count[k]}));
+  var top=allowed.filter(function(k){return count[k]===max});
+  var pick=top[0];
+  if(top.length>1){
+    var archL=st.arch>=0?ARCH[st.arch][1]:null, q3=L[st.ans[2]];
+    if(archL&&top.indexOf(archL)>=0)pick=archL;
+    else if(top.indexOf(q3)>=0)pick=q3;
+  }
+  var notes=why.slice();
+  if(st.care.indexOf('condicion')>=0 && (pick==='A'||pick==='B'))notes.push('Mencionaste una lesión, una condición médica o piel sensible: lo conversamos antes de empezar para ajustar la presión y las zonas.');
+  var alerta=st.ans[1]===2&&st.ans[3]===2;
+  return {pick:pick,count:count,notes:notes,alerta:alerta};
+}
+
+function result(){
+  var r=decide(), T=TECH[r.pick];
+  render('<div class="bar"><i style="width:100%"></i></div>'+
+  (r.alerta?'<div class="note alert"><strong>Antes de tu Oasis, una pausa de cuidado</strong><span>Marcaste que vives en alerta constante y que el miedo o la angustia te paralizan. El Oasis puede acompañarte, y también es importante que cuentes con apoyo profesional. Si sientes que no puedes más, busca ayuda ahora: Línea 106 (Bogotá) · Línea Púrpura 018000 112 137 (mujeres) · 123 (emergencias).</span></div>':'')+
+  '<div class="result"><img src="'+IMG+T.img+'.webp" alt="">'+
+  '<div class="stack"><p class="eyebrow">Tu ruta sugerida</p><h1 style="font-size:clamp(32px,5vw,46px)">'+T.n+'</h1>'+
+  '<p class="promise">“'+T.p+'”</p><p>'+T.d+(T.virtual?' Puede ser presencial o virtual.':' Es presencial, en Bogotá.')+'</p>'+
+'</div></div>'+
+  (r.notes.length?'<div class="note"><strong>Lo que vamos a cuidar</strong>'+r.notes.map(function(n){return '<span>'+n+'</span>'}).join('')+'</div>':'')+
+  '<p class="hint">Es una sugerencia: Nathalia la confirma contigo en la bienvenida de tu sesión.</p>'+
+  '<section class="save" aria-labelledby="sv"><h2 id="sv">Envíale tu escáner a Nathalia</h2>'+
+  '<p style="font-size:16px">Así llega a tu sesión sabiendo con qué empezar y qué cuidar.</p>'+
+  '<label class="field" for="f-nombre">Tu nombre<input id="f-nombre" autocomplete="name" placeholder="Tu nombre"></label>'+
+  '<div class="two"><label class="field" for="f-correo">Correo<input id="f-correo" type="email" autocomplete="email" placeholder="tu@correo.com"></label>'+
+  '<label class="field" for="f-tel">Teléfono / WhatsApp<input id="f-tel" type="tel" autocomplete="tel" placeholder="+57 …"></label></div>'+
+  '<label class="chk" for="f-aut"><input id="f-aut" type="checkbox"><span>Autorizo que Nathalia reciba mis respuestas del escáner, incluido lo que marqué para cuidar, para preparar mi sesión, según la <a href="../privacidad/" target="_blank" rel="noopener">política de privacidad</a>.</span></label>'+
+  '<input id="f-web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">'+
+  '<div class="row"><button class="btn sun" id="send">Enviar y agendar por WhatsApp</button></div>'+
+  '<p class="msg" id="msg" role="status" hidden></p></section>'+
+  '<div class="row"><a class="btn line" href="../oasis/">Ver el Oasis</a><button class="link" id="again">Volver a empezar</button></div>');
+  document.getElementById('again').onclick=function(){st={care:[],arch:-1,start:{tension:5,ruido:5,calma:5},ans:[]};intro()};
+  document.getElementById('send').onclick=function(){send(r)};
+}
+
+function send(r){
+  var v=function(id){return document.getElementById(id).value.trim()};
+  var msg=document.getElementById('msg'), btn=document.getElementById('send');
+  var show=function(t,bad){msg.hidden=false;msg.textContent=t;msg.classList.toggle('bad',!!bad)};
+  if(!v('f-nombre'))return show('Escribe tu nombre para que Nathalia sepa quién eres.',true);
+  if(!v('f-correo')&&!v('f-tel'))return show('Déjale a Nathalia un correo o un teléfono.',true);
+  if(!document.getElementById('f-aut').checked)return show('Para enviarle tus respuestas a Nathalia necesito tu autorización: marca la casilla.',true);
+  var T=TECH[r.pick];
+  var t='Hola Nathalia, soy '+v('f-nombre')+'. Hice el escáner del Oasis y mi ruta sugerida es '+T.n+'. Quiero agendar mi sesión.';
+  window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(t),'_blank','noopener');
+  var d=new URLSearchParams({tipo:'escaner',autoriza:'si',nombre:v('f-nombre'),correo:v('f-correo'),tel:v('f-tel'),
+    tecnica:T.n,respuestas:st.ans.map(function(i){return L[i]}).join(' '),
+    conteo:L.split('').map(function(k){return k+r.count[k]}).join(' '),
+    cuidados:st.care.map(function(k){return CARE.filter(function(c){return c.k===k})[0].t}).join(' · '),
+    arquetipo:st.arch>=0?ARCH[st.arch][0]:'',
+    tension:st.start.tension,ruido:st.start.ruido,calma:st.start.calma,
+    alerta:r.alerta?'si':'no',web:v('f-web')});
+  btn.disabled=true;btn.textContent='Enviado';
+  fetch(HOJA_URL,{method:'POST',mode:'no-cors',body:d}).then(function(){
+    show('Listo. Nathalia recibió tu escáner. Si WhatsApp no se abrió, escríbele al 320 885 7608.');
+  }).catch(function(){btn.disabled=false;btn.textContent='Enviar y agendar por WhatsApp';show('No pude enviar tus respuestas. Revisa tu conexión e inténtalo de nuevo.',true)});
+}
+
+intro();
+</script>
+</body>
+</html>
