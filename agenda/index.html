@@ -40,6 +40,9 @@ button.send{font:inherit;font-weight:700;border:0;border-radius:999px;background
 button.send:hover{background:#CC7A10}
 .alt{margin:0;text-align:center;font-size:15px;color:var(--soft)}
 .alt a{color:var(--sun);font-weight:700;text-decoration:none}
+.chk{display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;align-items:start;font-size:15px;font-weight:400;color:var(--soft);cursor:pointer}
+.chk input{width:20px;height:20px;margin-top:3px;padding:0;accent-color:var(--sun)}
+.chk a{color:var(--teal2)}
 .err{margin:0;color:#8C3300;font-size:15px;font-weight:600}
 .thanks{display:flex;flex-direction:column;gap:12px;background:#EAF4F3;border-radius:18px;padding:24px}
 .thanks h2{font-size:22px}
@@ -101,6 +104,7 @@ button.send:hover{background:#CC7A10}
     </div>
     <label for="msg">¿Qué te trae aquí hoy?<textarea id="msg" name="msg" placeholder="Cuéntame un poco sobre lo que estás viviendo…"></textarea></label>
     <label for="web" style="position:absolute;left:-9999px" aria-hidden="true">No llenar<input id="web" name="web" tabindex="-1" autocomplete="off"></label>
+    <label class="chk" for="aut"><input id="aut" type="checkbox"><span>Autorizo el tratamiento de mis datos para que Nathalia me contacte, según la <a href="../privacidad/" target="_blank" rel="noopener">política de privacidad</a>.</span></label>
     <p class="err" id="err" hidden>Escribe tu nombre para poder responderte.</p>
     <button class="send" id="sendbtn" type="submit">Enviar mensaje →</button>
     <div class="thanks" id="thanks" hidden>
@@ -124,7 +128,7 @@ button.send:hover{background:#CC7A10}
       <p>Lun · Mié · Jue: 6:30 – 7:30 p.m.</p>
       <p>Sábados: 9:00 / 10:10 / 11:30 a.m. / 2:00 p.m.</p>
     </div>
-    <p class="note">Mi trabajo acompaña y complementa, pero no reemplaza la atención psicológica ni médica.</p>
+    <p class="note">Mi trabajo acompaña y complementa, pero no reemplaza la atención psicológica ni médica. · <a href="../privacidad/" style="color:inherit">Política de privacidad</a></p>
   </aside>
 </main>
 
@@ -141,6 +145,7 @@ document.getElementById('f').addEventListener('submit', function (e) {
   var err = document.getElementById('err');
   if (!v('nombre')) { err.textContent = 'Escribe tu nombre para poder responderte.'; err.hidden = false; document.getElementById('nombre').focus(); return; }
   if (!v('correo') && !v('tel')) { err.textContent = 'Déjame un correo o un teléfono para poder responderte.'; err.hidden = false; document.getElementById('correo').focus(); return; }
+  if (!document.getElementById('aut').checked) { err.textContent = 'Para responderte necesito tu autorización: marca la casilla.'; err.hidden = false; document.getElementById('aut').focus(); return; }
   err.hidden = true;
   var t = 'Hola Nathalia, soy ' + v('nombre') + '. Visité tu página y me interesa: ' + v('interes') + '.';
   if (v('msg')) t += '\n\n' + v('msg');
@@ -155,7 +160,7 @@ document.getElementById('f').addEventListener('submit', function (e) {
   window.open(wa, '_blank', 'noopener');
   var datos = new URLSearchParams({
     nombre: v('nombre'), correo: v('correo'), tel: v('tel'),
-    interes: v('interes'), msg: v('msg'), web: v('web'), origen: 'Agenda tu sesión'
+    interes: v('interes'), msg: v('msg'), web: v('web'), origen: 'Agenda tu sesión', autoriza: 'si'
   });
   fetch(HOJA_URL, { method: 'POST', mode: 'no-cors', body: datos }).catch(function () {});
   document.querySelectorAll('#f > :not(#thanks):not(.alt)').forEach(function (el) { el.hidden = true; });
