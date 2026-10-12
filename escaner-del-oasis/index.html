@@ -117,8 +117,11 @@ var CARE = [
   {k:'condicion', t:'Tengo una lesión, una condición médica o la piel sensible.'}
 ];
 var ARCH = [
-  ['Líder al Borde','A'],['Promovida o Promovido Autoexigente','D'],['Desembarcada o Desembarcado','C'],
-  ['Tejedora o Tejedor de Visiones','B'],['Corazón sin Palabras','D']
+  ['Líder al Borde','A','Le doy todo al trabajo y siento que para sostenerlo estoy quemando mi salud y mi vida familiar.'],
+  ['Promovida o Promovido Autoexigente','D','Tengo las capacidades, pero me da terror que descubran que no soy suficiente.'],
+  ['Desembarcada o Desembarcado','C','Mi valor estuvo pegado a una empresa o a un cargo. Ahora no sé quién soy sin esa estructura.'],
+  ['Tejedora o Tejedor de Visiones','B','Tengo mil hilos en las manos y muchas ideas, pero me pierdo en mi propio caos.'],
+  ['Corazón sin Palabras','D','Siento mucho, pero no sé cómo decirlo. Y cuando lo digo, sale mal.']
 ];
 var Q = [
   ['Si cierras los ojos ahora mismo, ¿dónde sientes el mayor peso o tensión?',[
@@ -179,9 +182,9 @@ function care(){
 }
 
 function arch(){
-  var opts=ARCH.map(function(a,i){return [a[0],i]}).concat([['Aún no lo he hecho o no lo recuerdo',-2]]);
-  render(head(1,'Tu arquetipo')+
-  '<h2>Si ya hiciste el ejercicio <a href="../mundo-interior/" target="_blank" rel="noopener">Mundo Interior</a>, ¿con qué arquetipo te identificaste?</h2>'+
+  var opts=ARCH.map(function(a,i){return [a[2],i]}).concat([['Ninguna me representa del todo',-2]]);
+  render(head(1,'Tu momento')+
+  '<h2>¿Con cuál de estas frases te identificas más?</h2><p class="hint">Elige la que más se parezca a lo que vives hoy.</p>'+
   '<div class="opts">'+opts.map(function(o,i){return '<button class="opt" data-v="'+o[1]+'" aria-pressed="'+(st.arch===o[1])+'"'+(i===0?' data-focus':'')+'><span class="dot"></span><span>'+o[0]+'</span></button>'}).join('')+'</div>'+
   navBack());
   app.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){st.arch=+b.dataset.v;mark(b);setTimeout(start,240)}});
@@ -245,7 +248,7 @@ function result(){
   '<p class="hint">Es una sugerencia: Nathalia la confirma contigo en la bienvenida de tu sesión.</p>'+
   '<section class="save" aria-labelledby="sv"><h2 id="sv">Envíale tu escáner a Nathalia</h2>'+
   '<p style="font-size:16px">Así llega a tu sesión sabiendo con qué empezar y qué cuidar.</p>'+
-  '<label class="field" for="f-nombre">Tu nombre<input id="f-nombre" autocomplete="name" placeholder="Tu nombre"></label>'+
+  '<label class="field" for="f-nombre">Tu nombre completo<input id="f-nombre" autocomplete="name" placeholder="Tu nombre y apellido"></label>'+
   '<div class="two"><label class="field" for="f-correo">Correo<input id="f-correo" type="email" autocomplete="email" placeholder="tu@correo.com"></label>'+
   '<label class="field" for="f-tel">Teléfono / WhatsApp<input id="f-tel" type="tel" autocomplete="tel" placeholder="+57 …"></label></div>'+
   '<label class="chk" for="f-aut"><input id="f-aut" type="checkbox"><span>Autorizo que Nathalia reciba mis respuestas del escáner, incluido lo que marqué para cuidar, para preparar mi sesión, según la <a href="../privacidad/" target="_blank" rel="noopener">política de privacidad</a>.</span></label>'+

@@ -270,7 +270,7 @@ function welcome(){
    '<div class="modules">'+MODULES.map(function(m){ var n=ITEMS.filter(function(it){return it.mod===m.id}).length; return '<div><b>'+m.n+'. '+m.title+'</b>'+n+' preguntas</div>'; }).join('')+'</div>'+
    '<p class="hint">Son 103 preguntas, de 3 en 3. Te tomará entre 25 y 35 minutos. Responde con honestidad: no hay respuestas correctas. Si necesitas una pausa, tu avance queda guardado en este navegador.</p>'+
    (resume?'<div class="note warm"><strong>Tienes un diagnóstico en curso</strong><span>Llevas '+Object.keys(saved.ans).length+' de 103 respuestas'+(saved.name?' a nombre de '+esc(saved.name):'')+'.</span><div class="row"><button class="btn ink" id="resume">Continuar donde quedé</button><button class="link" id="fresh">Empezar de nuevo</button></div></div>':'')+
-   '<label class="field" for="f-name">Tu nombre<input id="f-name" autocomplete="name" placeholder="Así aparecerá en tu mapa" value="'+esc(st.name)+'" data-focus></label>'+
+   '<label class="field" for="f-name">Tu nombre completo<input id="f-name" autocomplete="name" placeholder="Así aparecerá en tu mapa" value="'+esc(st.name)+'" data-focus></label>'+
    '<label class="field" for="f-arch">Tu arquetipo en el ejercicio Mundo Interior (opcional)<select id="f-arch"><option value="">No lo sé o prefiero no decirlo</option>'+
      Object.keys(ARCH).map(function(k){ return '<option value="'+k+'"'+(st.arch===k?' selected':'')+'>'+ARCH[k].n+'</option>'; }).join('')+'</select></label>'+
    '<p class="hint" id="err" hidden style="color:var(--clay)"></p>'+
