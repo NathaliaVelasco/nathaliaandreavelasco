@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oasis Regenerativo · Nathalia Andrea Velasco</title>
+<meta name="description" content="60 minutos para detener el ruido, soltar la carga y recuperar tu aire. Cuatro rutas de alivio desde el cuerpo y el arte, en Bogotá.">
+<meta property="og:title" content="Oasis Regenerativo · Nathalia Andrea Velasco">
+<meta property="og:description" content="60 minutos para detener el ruido, soltar la carga y recuperar tu aire.">
+<meta property="og:image" content="../img/oasis/portada.webp">
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one warm column that breathes like a session — arrive (hero), let go (the four routes), take a seed (how it works), book. */
+:root{
+  --paper:#FFFCF8; --sand:#FBF3EA; --mint:#EAF4F3; --ink:#0B3B3D; --ink-2:#234C4E; --soft:#5D7778;
+  --sun:#E38C19; --sun-dark:#B96F0C; --peach:#F6A27A; --clay:#8C3300; --line:#E8DCCF; --white:#FFFFFF;
+  --font:'Raleway',ui-sans-serif,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.65}
+img{display:block;max-width:100%}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:24px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:18px}
+.top img{height:50px;width:auto}
+.top a.back{font-size:15px;font-weight:500;text-decoration:none}
+.eyebrow{margin:0;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--clay)}
+.accent{font-style:italic;font-weight:500;color:var(--sun)}
+h1,h2,h3{margin:0;text-wrap:balance;color:var(--ink)}
+h1{font-weight:300;font-size:clamp(38px,5.6vw,68px);line-height:1.07;letter-spacing:-.01em}
+h2{font-weight:300;font-size:clamp(30px,3.8vw,46px);line-height:1.15}
+h3{font-weight:600;font-size:22px;line-height:1.25}
+p{margin:0}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:16px;border-radius:999px;padding:15px 26px;text-align:center}
+.btn.sun{background:var(--sun);color:var(--white);box-shadow:0 10px 24px rgba(227,140,25,.3)}
+.btn.sun:hover{background:var(--sun-dark);color:var(--white)}
+.btn.line{border:1.5px solid var(--ink);color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:var(--white)}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center;padding-block:40px 88px}
+.hero .text{display:flex;flex-direction:column;gap:20px}
+.hero .lead{font-size:20px;color:var(--ink-2);max-width:560px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.hero .price{font-size:15px;color:var(--soft)}
+.hero .price b{color:var(--ink);font-size:18px}
+.hero figure{margin:0;position:relative}
+.hero figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:240px 240px 28px 28px}
+.hero figcaption{position:absolute;left:-28px;bottom:36px;background:var(--white);border-radius:18px;padding:14px 18px;font-size:15px;box-shadow:0 14px 34px rgba(11,59,61,.14);max-width:240px}
+.hero figcaption b{display:block;font-size:26px;font-weight:300;color:var(--sun);line-height:1}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding-block:20px 64px}.hero figcaption{left:12px}}
+/* not therapy */
+.pause{background:var(--ink);color:var(--white)}
+.pause .wrap{padding-block:72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:48px;align-items:start}
+.pause h2{color:var(--white)}
+.pause .intro{display:flex;flex-direction:column;gap:16px}
+.pause .intro p{color:#D9EDEC}
+.times{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.times li{border-top:2px solid var(--peach);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+.times b{font-size:20px;font-weight:600}
+.times span{color:#C9DEDD;font-size:16px}
+@media (max-width:860px){.pause .wrap{grid-template-columns:1fr;padding-block:56px}.times{grid-template-columns:1fr}}
+/* routes */
+.routes{padding-block:88px;display:flex;flex-direction:column;gap:40px}
+.routes .head{display:flex;flex-direction:column;gap:12px;max-width:720px}
+.routes .head p{color:var(--ink-2)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+.route{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.route img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.route .body{padding:22px;display:flex;flex-direction:column;gap:10px}
+.route .tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--sun)}
+.route p{font-size:16px;color:var(--ink-2)}
+.route .for{margin-top:auto;padding-top:10px;border-top:1px dashed var(--line);font-size:14px;color:var(--soft)}
+/* how */
+.how{background:var(--sand)}
+.how .wrap{padding-block:88px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.how figure{margin:0}
+.how figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:28px}
+.how .text{display:flex;flex-direction:column;gap:18px}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
+.steps li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;align-items:start}
+.steps .n{width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--white);display:grid;place-items:center;font-weight:700}
+.steps b{display:block;font-size:18px}
+.steps span{color:var(--ink-2);font-size:16px}
+@media (max-width:860px){.how .wrap{grid-template-columns:1fr;padding-block:64px}.how figure{order:2}}
+/* book */
+.book{padding-block:88px}
+.book .card{background:var(--mint);border-radius:28px;padding:48px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:center}
+.book .card .text{display:flex;flex-direction:column;gap:14px}
+.prices{display:flex;flex-direction:column;gap:14px}
+.prices div{background:var(--white);border-radius:18px;padding:18px 22px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.prices b{font-size:26px;font-weight:600;font-variant-numeric:tabular-nums}
+.prices small{display:block;color:var(--soft);font-size:14px}
+.book .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.fine{font-size:14px;color:var(--soft)}
+@media (max-width:860px){.book .card{grid-template-columns:1fr;padding:30px 22px}}
+/* care */
+.care{border-top:1px solid var(--line)}
+.care .wrap{padding-block:40px 64px;display:flex;flex-direction:column;gap:10px;max-width:860px}
+.care p{font-size:15px;color:var(--soft)}
+.care b{color:var(--ink)}
+.care a{color:var(--soft)}
+/* whatsapp */
+.wa-fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;align-items:center;gap:12px;text-decoration:none}
+.wa-label{background:var(--ink);color:var(--white);font-weight:600;font-size:15px;padding:10px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.wa-dot{width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.45)}
+@media (max-width:560px){.wa-label{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <a href="../"><img src="../img/firma.png" alt="Nathalia Velasco"></a>
+  <a class="back" href="../">← Volver al inicio</a>
+</header>
+
+<main>
+<section class="wrap hero">
+  <div class="text">
+    <p class="eyebrow">Oasis Regenerativo · 60 minutos</p>
+    <h1>Detén el ruido, suelta la carga y <span class="accent">recupera tu aire.</span></h1>
+    <p class="lead">¿Sientes que el estrés te sobrepasó, o que el cansancio físico y mental ya no te deja pensar? El Oasis es un espacio prioritario para ti: una pausa para detenerte antes de seguir.</p>
+    <div class="actions">
+      <a class="btn sun" href="../agenda/" target="_blank" rel="noopener">Agenda tu Oasis →</a>
+      <a class="btn line" href="#rutas">Conoce las 4 rutas</a>
+    </div>
+    <p class="price"><b>$195.000</b> la sesión · Paquete de 6: $1.050.000</p>
+  </div>
+  <figure>
+    <img src="../img/oasis/portada.webp" alt="Nathalia de pie detrás de un consultante sentado con los ojos cerrados, con las manos sobre sus sienes" fetchpriority="high">
+    <figcaption><b>60 min</b>para volver a tu cuerpo y nivelar tu energía</figcaption>
+  </figure>
+</section>
+
+<section class="pause">
+  <div class="wrap">
+    <div class="intro">
+      <p class="eyebrow" style="color:var(--peach)">No es una terapia ni un proceso largo</p>
+      <h2>Es una pausa para que puedas continuar <span class="accent" style="color:var(--peach)">sin romperte.</span></h2>
+      <p>Un oasis de 60 minutos para calmar la mente, descargar la presión del cuerpo y nivelar tu energía. Un camino para reparar y regenerar tu energía.</p>
+    </div>
+    <ol class="times">
+      <li><b>Llegar</b><span>Respiramos y nombramos lo que pesa hoy.</span></li>
+      <li><b>Soltar</b><span>Vivimos la ruta de alivio que tu cuerpo necesita.</span></li>
+      <li><b>Llevarte una semilla</b><span>Te vas con una pausa o un pequeño ritual para tu semana.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="wrap routes" id="rutas">
+  <div class="head">
+    <p class="eyebrow">Las 4 rutas de alivio</p>
+    <h2>Una técnica elegida para lo que <span class="accent">traes ese día</span></h2>
+    <p>Antes de tu sesión respondes el escáner del Oasis, un cuestionario de 5 preguntas sobre cómo llegas, y juntos elegimos la ruta.</p>
+  </div>
+  <div class="grid">
+    <article class="route">
+      <img src="../img/oasis/trazo.webp" alt="Mano que pinta con pincel sobre un papel lleno de color" loading="lazy">
+      <div class="body">
+        <span class="tag">Inspirado en Jackson Pollock</span>
+        <h3>Trazo en Movimiento</h3>
+        <p>Usamos el color y el movimiento libre de la pintura para descargar la presión acumulada, sacudir la frustración y recuperar el enfoque.</p>
+        <p class="for">Para cuando la frustración te pide sacudirte.</p>
+      </div>
+    </article>
+    <article class="route">
+      <img src="../img/oasis/aromas.webp" alt="Consultante con los ojos cerrados y las manos juntas mientras Nathalia le acerca un aceite esencial" loading="lazy">
+      <div class="body">
+        <span class="tag">Aceites esenciales y respiración</span>
+        <h3>Cuerpo Consciente &amp; Aromas</h3>
+        <p>Un recorrido sensorial con aceites esenciales y respiración profunda para bajar la alerta y devolverle la calma a tu cuerpo.</p>
+        <p class="for">Para cuando la preocupación no te deja respirar.</p>
+      </div>
+    </article>
+    <article class="route">
+      <img src="../img/oasis/centro.webp" alt="Las manos de Nathalia presionan con suavidad la mano de un consultante" loading="lazy">
+      <div class="body">
+        <span class="tag">Puntos de presión</span>
+        <h3>El Centro eres Tú</h3>
+        <p>Reflexología suave y digitopuntura para soltar los nudos de tensión donde se acumula el agotamiento: manos, pies o cabeza.</p>
+        <p class="for">Para cuando tienes mil hilos y necesitas volver a tierra.</p>
+      </div>
+    </article>
+    <article class="route">
+      <img src="../img/oasis/facial.webp" alt="Nathalia sostiene con las manos el rostro de un consultante que descansa con los ojos cerrados" loading="lazy">
+      <div class="body">
+        <span class="tag">Masaje facial</span>
+        <h3>Bio-Liberación Facial Emocional</h3>
+        <p>El estrés aprieta la mandíbula y endurece el rostro. Este masaje relaja los músculos de la cara y aligera el peso que se refleja en ella.</p>
+        <p class="for">Para cuando llevas mucho tiempo sosteniendo la máscara.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <figure><img src="../img/oasis/contencion.webp" alt="Nathalia abraza y sostiene con ternura la cabeza de una consultante"></figure>
+    <div class="text">
+      <p class="eyebrow">Cómo funciona</p>
+      <h2>Desde que agendas, <span class="accent">ya empezaste a soltar</span></h2>
+      <ol class="steps">
+        <li><span class="n">1</span><p><b>Agenda tu Oasis</b><span>Escríbeme desde el formulario o por WhatsApp y elegimos el día. Sesiones en Bogotá; el trazo y los aromas también pueden ser virtuales.</span></p></li>
+        <li><span class="n">2</span><p><b>Responde el escáner del Oasis</b><span>Cinco preguntas sensoriales sobre dónde sientes el peso y qué necesita tu cuerpo, y un chequeo de lo que debemos cuidar: contacto, aromas, embarazo o lesiones.</span></p></li>
+        <li><span class="n">3</span><p><b>Vive tus 60 minutos</b><span>Llegas, respiras y vives la ruta elegida para ti.</span></p></li>
+        <li><span class="n">4</span><p><b>Cuéntame cómo te vas</b><span>Una breve evaluación de tu retorno del Oasis me ayuda a cuidar mejor a quienes llegan después de ti.</span></p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="wrap book" id="agendar">
+  <div class="card">
+    <div class="text">
+      <p class="eyebrow">Tu Oasis</p>
+      <h2>Date una hora <span class="accent">para ti</span></h2>
+      <p>Si una sesión te hace bien, el paquete de 6 te ayuda a sostener el alivio en el tiempo.</p>
+      <div class="actions">
+        <a class="btn sun" href="../agenda/" target="_blank" rel="noopener">Agenda tu Oasis →</a>
+        <a class="btn line" href="https://wa.me/573208857608?text=Hola%20Nathalia%2C%20quiero%20agendar%20un%20Oasis%20Regenerativo" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
+    </div>
+    <div class="prices">
+      <div><span>Una sesión<small>60 minutos</small></span><b>$195.000</b></div>
+      <div><span>Paquete de 6<small>$175.000 por sesión</small></span><b>$1.050.000</b></div>
+      <p class="fine">Valores antes de IVA. Si necesitas factura se suma el 19 %.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="care">
+  <div class="wrap">
+    <p><b>Mi trabajo acompaña y complementa, pero no reemplaza la atención psicológica ni médica.</b> Si estás en un proceso con un profesional de la salud, el Oasis acompaña ese camino.</p>
+    <p>Si sientes que no puedes más, busca ayuda ahora: Línea 106 (Bogotá) · Línea Púrpura 018000 112 137 (mujeres) · 123 (emergencias).</p>
+    <p>© 2026 Nathalia Andrea Velasco · <a href="../privacidad/">Política de privacidad</a></p>
+  </div>
+</footer>
+
+<a href="https://wa.me/573208857608?text=Hola%20Nathalia%2C%20quiero%20saber%20m%C3%A1s%20del%20Oasis" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp" class="wa-fab"><span class="wa-label">Escríbeme</span><span class="wa-dot"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#FFFFFF" d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.3 28.8l6.6-1.7A12.7 12.7 0 1 0 16 3.2Zm0 23.2c-2 0-3.9-.5-5.5-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.5 10.5 0 1 1 16 26.4Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.2 2.8 6.5 6.5 0 0 0 1.4 3.4 14.7 14.7 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.1-.3-.2-.6-.4Z"/></svg></span></a>
+</body>
+</html>
