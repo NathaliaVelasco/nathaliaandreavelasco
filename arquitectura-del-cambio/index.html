@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arquitectura del Cambio · Nathalia Andrea Velasco</title>
+<meta name="description" content="Mentoría de 5 semanas para transitar un nuevo cargo, un proyecto exigente o tu independencia sin perderte. También para equipos de 4 a 12 personas.">
+<meta property="og:title" content="Arquitectura del Cambio · Nathalia Andrea Velasco">
+<meta property="og:description" content="Mentoría de 5 semanas para transitar un nuevo cargo, un proyecto exigente o tu independencia sin perderte. También para equipos de 4 a 12 personas.">
+<meta property="og:image" content="../img/mentorias/a-jota.webp">
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one warm column that breathes like a session — arrive (hero), let go (the four routes), take a seed (how it works), book. */
+:root{
+  --paper:#FFFCF8; --sand:#FBF3EA; --mint:#EAF4F3; --ink:#0B3B3D; --ink-2:#234C4E; --soft:#5D7778;
+  --sun:#E38C19; --sun-dark:#B96F0C; --peach:#F6A27A; --clay:#8C3300; --line:#E8DCCF; --white:#FFFFFF;
+  --font:'Raleway',ui-sans-serif,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.65}
+img{display:block;max-width:100%}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:24px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:18px}
+.top img{height:50px;width:auto}
+.top a.back{font-size:15px;font-weight:500;text-decoration:none}
+.eyebrow{margin:0;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--clay)}
+.accent{font-style:italic;font-weight:500;color:var(--sun)}
+h1,h2,h3{margin:0;text-wrap:balance;color:var(--ink)}
+h1{font-weight:300;font-size:clamp(38px,5.6vw,68px);line-height:1.07;letter-spacing:-.01em}
+h2{font-weight:300;font-size:clamp(30px,3.8vw,46px);line-height:1.15}
+h3{font-weight:600;font-size:22px;line-height:1.25}
+p{margin:0}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:16px;border-radius:999px;padding:15px 26px;text-align:center}
+.btn.sun{background:var(--sun);color:var(--white);box-shadow:0 10px 24px rgba(227,140,25,.3)}
+.btn.sun:hover{background:var(--sun-dark);color:var(--white)}
+.btn.line{border:1.5px solid var(--ink);color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:var(--white)}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center;padding-block:40px 88px}
+.hero .text{display:flex;flex-direction:column;gap:20px}
+.hero .lead{font-size:20px;color:var(--ink-2);max-width:560px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.hero .price{font-size:15px;color:var(--soft)}
+.hero .price b{color:var(--ink);font-size:18px}
+.hero figure{margin:0;position:relative}
+.hero figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:240px 240px 28px 28px}
+.hero figcaption{position:absolute;left:-28px;bottom:36px;background:var(--white);border-radius:18px;padding:14px 18px;font-size:15px;box-shadow:0 14px 34px rgba(11,59,61,.14);max-width:240px}
+.hero figcaption b{display:block;font-size:26px;font-weight:300;color:var(--sun);line-height:1}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding-block:20px 64px}.hero figcaption{left:12px}}
+/* not therapy */
+.pause{background:var(--ink);color:var(--white)}
+.pause .wrap{padding-block:72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:48px;align-items:start}
+.pause h2{color:var(--white)}
+.pause .intro{display:flex;flex-direction:column;gap:16px}
+.pause .intro p{color:#D9EDEC}
+.times{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.times li{border-top:2px solid var(--peach);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+.times b{font-size:20px;font-weight:600}
+.times span{color:#C9DEDD;font-size:16px}
+@media (max-width:860px){.pause .wrap{grid-template-columns:1fr;padding-block:56px}.times{grid-template-columns:1fr}}
+/* routes */
+.routes{padding-block:88px;display:flex;flex-direction:column;gap:40px}
+.routes .head{display:flex;flex-direction:column;gap:12px;max-width:720px}
+.routes .head p{color:var(--ink-2)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+.route{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.route img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.route .body{padding:22px;display:flex;flex-direction:column;gap:10px}
+.route .tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--sun)}
+.route p{font-size:16px;color:var(--ink-2)}
+.route .for{margin-top:auto;padding-top:10px;border-top:1px dashed var(--line);font-size:14px;color:var(--soft)}
+/* how */
+.how{background:var(--sand)}
+.how .wrap{padding-block:88px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.how figure{margin:0}
+.how figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:28px}
+.how .text{display:flex;flex-direction:column;gap:18px}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
+.steps li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;align-items:start}
+.steps .n{width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--white);display:grid;place-items:center;font-weight:700}
+.steps b{display:block;font-size:18px}
+.steps span{color:var(--ink-2);font-size:16px}
+@media (max-width:860px){.how .wrap{grid-template-columns:1fr;padding-block:64px}.how figure{order:2}}
+/* book */
+.book{padding-block:88px}
+.book .card{background:var(--mint);border-radius:28px;padding:48px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:center}
+.book .card .text{display:flex;flex-direction:column;gap:14px}
+.prices{display:flex;flex-direction:column;gap:14px}
+.prices div{background:var(--white);border-radius:18px;padding:18px 22px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.prices b{font-size:26px;font-weight:600;font-variant-numeric:tabular-nums}
+.prices small{display:block;color:var(--soft);font-size:14px}
+.book .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.fine{font-size:14px;color:var(--soft)}
+@media (max-width:860px){.book .card{grid-template-columns:1fr;padding:30px 22px}}
+/* care */
+.care{border-top:1px solid var(--line)}
+.care .wrap{padding-block:40px 64px;display:flex;flex-direction:column;gap:10px;max-width:860px}
+.care p{font-size:15px;color:var(--soft)}
+.care b{color:var(--ink)}
+.care a{color:var(--soft)}
+/* whatsapp */
+.wa-fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;align-items:center;gap:12px;text-decoration:none}
+.wa-label{background:var(--ink);color:var(--white);font-weight:600;font-size:15px;padding:10px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.wa-dot{width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.45)}
+@media (max-width:560px){.wa-label{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* fases y semanas */
+.phases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media (max-width:900px){.phases{grid-template-columns:1fr}}
+.phase{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.phase img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.phase .body{padding:22px;display:flex;flex-direction:column;gap:8px}
+.phase .n{font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--sun)}
+.phase p{font-size:16px;color:var(--ink-2)}
+.arc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.arc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.arc{grid-template-columns:1fr}}
+.arc li{background:var(--white);border-radius:18px;padding:18px 20px;border:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.arc .n{font-size:13px;font-weight:700;color:var(--clay);letter-spacing:.1em;text-transform:uppercase}
+.arc b{font-size:18px}
+.arc span{font-size:15px;color:var(--ink-2)}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.list li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start;color:var(--ink-2)}
+.list li::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--sun);margin-top:9px;margin-left:6px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+@media (max-width:860px){.split{grid-template-columns:1fr;gap:28px}}
+.split img{width:100%;border-radius:24px;object-fit:cover}
+.band{padding-block:88px}
+.band.sand{background:var(--sand)}
+.band.mint{background:var(--mint)}
+.band .wrap{display:flex;flex-direction:column;gap:28px}
+.map-note{background:var(--white);border-left:4px solid var(--sun);border-radius:0 18px 18px 0;padding:20px 24px;display:flex;flex-direction:column;gap:6px}
+.company{background:var(--ink);color:var(--white);border-radius:28px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.company img{width:100%;height:100%;object-fit:cover;min-height:280px}
+.company .text{padding:40px;display:flex;flex-direction:column;gap:14px}
+.company h2{color:var(--white)}
+.company p,.company li{color:#D9EDEC}
+.company .list li::before{background:var(--peach)}
+@media (max-width:860px){.company{grid-template-columns:1fr}.company .text{padding:28px 22px}}
+.btn.peach{background:var(--peach);color:var(--ink)}
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <a href="../"><img src="../img/firma.png" alt="Nathalia Velasco"></a>
+  <a class="back" href="../#acompanamientos">← Volver al inicio</a>
+</header>
+<main>
+
+<section class="wrap hero">
+  <div class="text">
+    <p class="eyebrow">Mentoría para profesionales en transición</p>
+    <h1>¿Voy a poder sostener esto <span class="accent">sin perderme en el intento?</span></h1>
+    <p class="lead">Aceptaste el ascenso, el proyecto de alto alcance o el salto a tu propio camino. Arquitectura del Cambio es una mentoría de 5 semanas para transitarlo sin sacrificar tu salud ni tu claridad.</p>
+    <div class="actions">
+      <a class="btn sun" href="../agenda/" target="_blank" rel="noopener">Agenda tu mentoría →</a>
+      <a class="btn line" href="#empresas">Para empresas</a>
+    </div>
+    <p class="price"><b>$1.350.000</b> el proceso individual de 5 semanas</p>
+  </div>
+  <figure>
+    <img src="../img/mentorias/a-jota.webp" alt="Un profesional concentrado dibuja con marcador durante un ejercicio de mentoría" fetchpriority="high">
+    <figcaption><b>5 semanas</b>para pasar del vértigo a una ruta clara</figcaption>
+  </figure>
+</section>
+
+<section class="pause">
+  <div class="wrap">
+    <div class="intro">
+      <p class="eyebrow" style="color:var(--peach)">No es un curso más de gestión del tiempo</p>
+      <h2>Es un rescate personal y <span class="accent" style="color:var(--peach)">una hoja de ruta concreta.</span></h2>
+      <p>Para sostener tu liderazgo con bienestar en un nuevo cargo, un proyecto de alta exigencia o el inicio de tu independencia.</p>
+    </div>
+    <ol class="times">
+      <li><b>2 sesiones presenciales</b><span>De 2 horas cada una, al inicio y al cierre de tu ruta.</span></li>
+      <li><b>Trabajo autónomo guiado</b><span>1 hora a la semana, a tu ritmo, con tu bitácora.</span></li>
+      <li><b>Tu bitácora</b><span>Diagnóstico personal, protocolo de sostenibilidad y matriz de objetivos.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="wrap band">
+  <div style="display:flex;flex-direction:column;gap:12px;max-width:720px">
+    <p class="eyebrow">Lo que vas a transformar</p>
+    <h2>Del vértigo a <span class="accent">la acción con sentido</span></h2>
+  </div>
+  <div class="phases" style="grid-template-columns:repeat(2,minmax(0,1fr));margin-top:32px">
+    <article class="phase"><img src="../img/mentorias/a-pajaro.webp" alt="Una mano dibuja con marcador rosado un pájaro hecho en collage" loading="lazy"><div class="body"><span class="n">Del impostor al merecimiento</span><p>Herramientas para desarmar la autoexigencia y reconocer tu valor real, más allá de “hacer 24/7”.</p></div></article>
+    <article class="phase"><img src="../img/mentorias/a-nido.webp" alt="Dibujo de un nido con tres huevos marcados como relojes" loading="lazy"><div class="body"><span class="n">Autogestión sin culpa</span><p>El derecho a poner límites sanos, a pausar y a decidir desde tu soberanía, no desde la presión externa.</p></div></article>
+    <article class="phase"><img src="../img/mentorias/a-bitacora.webp" alt="Un profesional escribe en su bitácora durante la mentoría" loading="lazy"><div class="body"><span class="n">De la parálisis a la acción imperfecta</span><p>Pivotar con agilidad en vez de esperar el plan perfecto que nunca llega.</p></div></article>
+    <article class="phase"><img src="../img/mentorias/d-pintura.webp" alt="Una persona pinta con acuarela violeta y azul junto a lápices y pinceles" loading="lazy"><div class="body"><span class="n">Una ruta a 3, 6 y 12 meses</span><p>Para que la mentoría se traduzca en resultados tangibles y no se quede en la reflexión.</p></div></article>
+  </div>
+</section>
+
+<section class="band sand">
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:720px">
+      <p class="eyebrow">Cómo funciona</p>
+      <h2>Cinco semanas, <span class="accent">paso a paso</span></h2>
+    </div>
+    <div class="map-note"><b>Todo empieza con tu mapa</b><span>Antes de la primera sesión respondes el Diagnóstico Profundo. Ese mapa es tu diagnóstico personal y el punto de partida de tu bitácora.</span></div>
+    <ol class="arc">
+      <li><span class="n">Semana 1 · Presencial</span><b>Apertura</b><span>Leemos tu mapa, nombramos tu transición y armamos tu matriz de objetivos.</span></li>
+      <li><span class="n">Semana 2 · Autónoma</span><b>Del impostor al merecimiento</b><span>Reconocer tu valor real.</span></li>
+      <li><span class="n">Semana 3 · Autónoma</span><b>Autogestión sin culpa</b><span>Límites sanos, pausas y decisiones propias.</span></li>
+      <li><span class="n">Semana 4 · Autónoma</span><b>Acción imperfecta</b><span>Un primer prototipo de tu nueva etapa.</span></li>
+      <li><span class="n">Semana 5 · Presencial</span><b>Cierre</b><span>Tu ruta a 3, 6 y 12 meses y tu protocolo de sostenibilidad.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="wrap band">
+  <div class="split">
+    <img src="../img/mentorias/a-nathalia.webp" alt="Nathalia pinta con acuarela junto a los participantes de un taller" loading="lazy" style="aspect-ratio:4/5;max-height:620px">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <p class="eyebrow">Quién te acompaña</p>
+      <h2>Nathalia Andrea <span class="accent">Velasco</span></h2>
+      <p class="lead" style="font-size:18px">Diseñadora de origen, educadora por vocación y artista por pasión. Aspirante a Maestría en Educación y arteterapeuta en formación, con 13 años acompañando procesos de liderazgo y bienestar en Latinoamérica bajo su metodología propia, El Borde Visible™. Fundadora de Simoné desde 2013.</p>
+      <p>Complemento opcional: <b>Asesoría en diseño pedagógico</b>, para convertir tu saber en un método que otros puedan aprender ($300.000 la sesión de 2 horas).</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="empresas" style="padding-bottom:24px">
+  <div class="company">
+    <img src="../img/mentorias/a-equipo.webp" alt="Un grupo de profesionales conversa alrededor de una mesa en una sesión con Nathalia" loading="lazy">
+    <div class="text">
+      <p class="eyebrow" style="color:var(--peach)">Para empresas</p>
+      <h2>Arquitectura del Cambio para tu equipo</h2>
+      <p>Para grupos de 4 a 12 personas que viven una transición. Es un ejercicio preferencial y personalizado: cada persona vive su propio proceso dentro de un grupo pequeño.</p>
+      <ul class="list">
+        <li>Cada persona responde su Diagnóstico Profundo y recibe su mapa.</li>
+        <li>Sesiones de apertura y cierre en grupo, de 2 horas cada una.</li>
+        <li>Trabajo autónomo guiado para cada persona, con su propia bitácora.</li>
+        <li>Informe de Compromiso y Desarrollo para la empresa. Los resultados individuales son de cada persona y no se comparten sin su autorización.</li>
+      </ul>
+      <div class="actions" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:6px">
+        <a class="btn peach" href="https://wa.me/573208857608?text=Hola%20Nathalia%2C%20quiero%20una%20cotizaci%C3%B3n%20de%20Arquitectura%20del%20Cambio%20para%20mi%20equipo" target="_blank" rel="noopener">Pide una cotización →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap book" id="agendar">
+  <div class="card">
+    <div class="text">
+      <p class="eyebrow">Tu mentoría</p>
+      <h2>Sostén tu cambio <span class="accent">sin perderte</span></h2>
+      <p>Escríbeme y agendamos tu sesión de apertura. Antes de empezar te comparto el Diagnóstico Profundo.</p>
+      <div class="actions">
+        <a class="btn sun" href="../agenda/" target="_blank" rel="noopener">Agenda tu mentoría →</a>
+        <a class="btn line" href="https://wa.me/573208857608?text=Hola%20Nathalia%2C%20quiero%20saber%20m%C3%A1s%20de%20Arquitectura%20del%20Cambio" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
+    </div>
+    <div class="prices">
+      <div><span>Proceso individual<small>5 semanas · 2 sesiones de 2 horas + 5 horas autónomas</small></span><b>$1.350.000</b></div>
+      <div><span>Empresas<small>Grupos de 4 a 12 personas</small></span><b style="font-size:20px">Cotización</b></div>
+      <p class="fine">Valores antes de IVA. Si necesitas factura se suma el 19 %.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="care">
+  <div class="wrap">
+    <p><b>Mi trabajo acompaña y complementa, pero no reemplaza la atención psicológica ni médica.</b></p>
+    <p>© 2026 Nathalia Andrea Velasco · <a href="../privacidad/">Política de privacidad</a></p>
+  </div>
+</footer>
+<a href="https://wa.me/573208857608?text=Hola%20Nathalia%2C%20quiero%20saber%20m%C3%A1s%20de%20Arquitectura%20del%20Cambio" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp" class="wa-fab"><span class="wa-label">Escríbeme</span><span class="wa-dot"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#FFFFFF" d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.3 28.8l6.6-1.7A12.7 12.7 0 1 0 16 3.2Zm0 23.2c-2 0-3.9-.5-5.5-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.5 10.5 0 1 1 16 26.4Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.2 2.8 6.5 6.5 0 0 0 1.4 3.4 14.7 14.7 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.1-.3-.2-.6-.4Z"/></svg></span></a>
+</body>
+</html>

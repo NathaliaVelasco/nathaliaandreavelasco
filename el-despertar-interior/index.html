@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El Despertar Interior · Nathalia Andrea Velasco</title>
+<meta name="description" content="Mentoría 1:1 de 6 sesiones para volver a ti: arte, cuerpo y respiración para ordenar tu mundo interior.">
+<meta property="og:title" content="El Despertar Interior · Nathalia Andrea Velasco">
+<meta property="og:description" content="Mentoría 1:1 de 6 sesiones para volver a ti: arte, cuerpo y respiración para ordenar tu mundo interior.">
+<meta property="og:image" content="../img/despertar-escribiendo.jpg">
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one warm column that breathes like a session — arrive (hero), let go (the four routes), take a seed (how it works), book. */
+:root{
+  --paper:#FFFCF8; --sand:#FBF3EA; --mint:#EAF4F3; --ink:#0B3B3D; --ink-2:#234C4E; --soft:#5D7778;
+  --sun:#E38C19; --sun-dark:#B96F0C; --peach:#F6A27A; --clay:#8C3300; --line:#E8DCCF; --white:#FFFFFF;
+  --font:'Raleway',ui-sans-serif,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.65}
+img{display:block;max-width:100%}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:24px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:18px}
+.top img{height:50px;width:auto}
+.top a.back{font-size:15px;font-weight:500;text-decoration:none}
+.eyebrow{margin:0;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--clay)}
+.accent{font-style:italic;font-weight:500;color:var(--sun)}
+h1,h2,h3{margin:0;text-wrap:balance;color:var(--ink)}
+h1{font-weight:300;font-size:clamp(38px,5.6vw,68px);line-height:1.07;letter-spacing:-.01em}
+h2{font-weight:300;font-size:clamp(30px,3.8vw,46px);line-height:1.15}
+h3{font-weight:600;font-size:22px;line-height:1.25}
+p{margin:0}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:16px;border-radius:999px;padding:15px 26px;text-align:center}
+.btn.sun{background:var(--sun);color:var(--white);box-shadow:0 10px 24px rgba(227,140,25,.3)}
+.btn.sun:hover{background:var(--sun-dark);color:var(--white)}
+.btn.line{border:1.5px solid var(--ink);color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:var(--white)}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center;padding-block:40px 88px}
+.hero .text{display:flex;flex-direction:column;gap:20px}
+.hero .lead{font-size:20px;color:var(--ink-2);max-width:560px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.hero .price{font-size:15px;color:var(--soft)}
+.hero .price b{color:var(--ink);font-size:18px}
+.hero figure{margin:0;position:relative}
+.hero figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:240px 240px 28px 28px}
+.hero figcaption{position:absolute;left:-28px;bottom:36px;background:var(--white);border-radius:18px;padding:14px 18px;font-size:15px;box-shadow:0 14px 34px rgba(11,59,61,.14);max-width:240px}
+.hero figcaption b{display:block;font-size:26px;font-weight:300;color:var(--sun);line-height:1}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding-block:20px 64px}.hero figcaption{left:12px}}
+/* not therapy */
+.pause{background:var(--ink);color:var(--white)}
+.pause .wrap{padding-block:72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:48px;align-items:start}
+.pause h2{color:var(--white)}
+.pause .intro{display:flex;flex-direction:column;gap:16px}
+.pause .intro p{color:#D9EDEC}
+.times{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.times li{border-top:2px solid var(--peach);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+.times b{font-size:20px;font-weight:600}
+.times span{color:#C9DEDD;font-size:16px}
+@media (max-width:860px){.pause .wrap{grid-template-columns:1fr;padding-block:56px}.times{grid-template-columns:1fr}}
+/* routes */
+.routes{padding-block:88px;display:flex;flex-direction:column;gap:40px}
+.routes .head{display:flex;flex-direction:column;gap:12px;max-width:720px}
+.routes .head p{color:var(--ink-2)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+.route{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.route img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.route .body{padding:22px;display:flex;flex-direction:column;gap:10px}
+.route .tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--sun)}
+.route p{font-size:16px;color:var(--ink-2)}
+.route .for{margin-top:auto;padding-top:10px;border-top:1px dashed var(--line);font-size:14px;color:var(--soft)}
+/* how */
+.how{background:var(--sand)}
+.how .wrap{padding-block:88px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.how figure{margin:0}
+.how figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:28px}
+.how .text{display:flex;flex-direction:column;gap:18px}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
+.steps li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;align-items:start}
+.steps .n{width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--white);display:grid;place-items:center;font-weight:700}
+.steps b{display:block;font-size:18px}
+.steps span{color:var(--ink-2);font-size:16px}
+@media (max-width:860px){.how .wrap{grid-template-columns:1fr;padding-block:64px}.how figure{order:2}}
+/* book */
+.book{padding-block:88px}
+.book .card{background:var(--mint);border-radius:28px;padding:48px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:center}
+.book .card .text{display:flex;flex-direction:column;gap:14px}
+.prices{display:flex;flex-direction:column;gap:14px}
+.prices div{background:var(--white);border-radius:18px;padding:18px 22px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.prices b{font-size:26px;font-weight:600;font-variant-numeric:tabular-nums}
+.prices small{display:block;color:var(--soft);font-size:14px}
+.book .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.fine{font-size:14px;color:var(--soft)}
+@media (max-width:860px){.book .card{grid-template-columns:1fr;padding:30px 22px}}
+/* care */
+.care{border-top:1px solid var(--line)}
+.care .wrap{padding-block:40px 64px;display:flex;flex-direction:column;gap:10px;max-width:860px}
+.care p{font-size:15px;color:var(--soft)}
+.care b{color:var(--ink)}
+.care a{color:var(--soft)}
+/* whatsapp */
+.wa-fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;align-items:center;gap:12px;text-decoration:none}
+.wa-label{background:var(--ink);color:var(--white);font-weight:600;font-size:15px;padding:10px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.wa-dot{width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.45)}
+@media (max-width:560px){.wa-label{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* fases y semanas */
+.phases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media (max-width:900px){.phases{grid-template-columns:1fr}}
+.phase{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.phase img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.phase .body{padding:22px;display:flex;flex-direction:column;gap:8px}
+.phase .n{font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--sun)}
+.phase p{font-size:16px;color:var(--ink-2)}
+.arc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.arc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.arc{grid-template-columns:1fr}}
+.arc li{background:var(--white);border-radius:18px;padding:18px 20px;border:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.arc .n{font-size:13px;font-weight:700;color:var(--clay);letter-spacing:.1em;text-transform:uppercase}
+.arc b{font-size:18px}
+.arc span{font-size:15px;color:var(--ink-2)}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.list li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start;color:var(--ink-2)}
+.list li::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--sun);margin-top:9px;margin-left:6px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+@media (max-width:860px){.split{grid-template-columns:1fr;gap:28px}}
+.split img{width:100%;border-radius:24px;object-fit:cover}
+.band{padding-block:88px}
+.band.sand{background:var(--sand)}
+.band.mint{background:var(--mint)}
+.band .wrap{display:flex;flex-direction:column;gap:28px}
+.map-note{background:var(--white);border-left:4px solid var(--sun);border-radius:0 18px 18px 0;padding:20px 24px;display:flex;flex-direction:column;gap:6px}
+.company{background:var(--ink);color:var(--white);border-radius:28px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.company img{width:100%;height:100%;object-fit:cover;min-height:280px}
+.company .text{padding:40px;display:flex;flex-direction:column;gap:14px}
+.company h2{color:var(--white)}
+.company p,.company li{color:#D9EDEC}
+.company .list li::before{background:var(--peach)}
+@media (max-width:860px){.company{grid-template-columns:1fr}.company .text{padding:28px 22px}}
+.btn.peach{background:var(--peach);color:var(--ink)}
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <a href="../"><img src="../img/firma.png" alt="Nathalia Velasco"></a>
+  <a class="back" href="../#acompanamientos">← Volver al inicio</a>
+</header>
+<main>
+
+<section class="wrap hero">
+  <div class="text">
+    <p class="eyebrow">Mentoría 1:1 · El Despertar Interior</p>
+    <h1>El arte de volver a ti cuando <span class="accent">el mundo te agota</span></h1>
+    <p class="lead">¿Sientes que el mundo se ha vuelto denso y has perdido tu norte? Hay momentos en que el cansancio nubla la visión de quién eres. Si hoy no encuentras el camino, quiero decirte algo: tú puedes ser tu propio lugar seguro.</p>
+    <div class="actions">
+      <a class="btn sun" href="../agenda/" target="_blank" rel="noopener">Agenda tu primera sesión →</a>
+      <a class="btn line" href="#proceso">Cómo es el proceso</a>
+    </div>
+    <p class="price"><b>$1.250.000</b> el proceso de 6 sesiones · Sesión de 90 min: $250.000</p>
+  </div>
+  <figure>
+    <img src="../img/despertar-escribiendo.jpg" alt="Nathalia sonríe mientras escribe sobre tarjetas pintadas con acuarela" fetchpriority="high">
+    <figcaption><b>6 sesiones</b>de 90 minutos, una cada 8 a 10 días</figcaption>
+  </figure>
+</section>
+
+<section class="pause">
+  <div class="wrap">
+    <div class="intro">
+      <p class="eyebrow" style="color:var(--peach)">No es una charla de desahogo</p>
+      <h2>Es un proceso para <span class="accent" style="color:var(--peach)">ordenar tu casa interior.</span></h2>
+      <p>El Despertar Interior es una mentoría para profesionales que quieren superar sus bloqueos, comunicarse mejor y gestionar sus emociones. Revisamos los patrones que aprendiste en tu historia y diseñamos un plan a tu medida.</p>
+    </div>
+    <ol class="times">
+      <li><b>Arte como lenguaje</b><span>El trazo y el color dicen lo que las palabras no alcanzan.</span></li>
+      <li><b>Cuerpo y respiración</b><span>Pausas que bajan el ruido mental y te devuelven a tu centro.</span></li>
+      <li><b>Ordenar tu mundo interior</b><span>Pensamientos, patrones y valores, para recuperar la calma y la claridad.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="wrap band" id="proceso">
+  <div class="stack" style="display:flex;flex-direction:column;gap:12px;max-width:720px">
+    <p class="eyebrow">Cada sesión · 90 minutos</p>
+    <h2>Tres tiempos para <span class="accent">mirarte por dentro</span></h2>
+  </div>
+  <div class="phases" style="margin-top:32px">
+    <article class="phase"><img src="../img/mentorias/d-garabato.webp" alt="Una mano traza garabatos con marcadores negro, rojo y verde" loading="lazy"><div class="body"><span class="n">1 · Vaciado</span><h3>El espejo de barro</h3><p>Con papel, arcilla o trazo sacas afuera lo que pesa: el estrés, la niebla, la rutina. Dejamos que hable la parte del cuerpo que está tensa.</p></div></article>
+    <article class="phase"><img src="../img/mentorias/d-acuarela.webp" alt="Acuarela amarilla con una figura en trazo azul y una espiral roja en el pecho" loading="lazy"><div class="body"><span class="n">2 · Calibración</span><h3>La geometría de origen</h3><p>Con conversación y visualización reorganizamos tus prioridades y desmontamos las expectativas que no son tuyas.</p></div></article>
+    <article class="phase"><img src="../img/mentorias/d-abeja.webp" alt="Manos que colorean con calma una abeja dibujada sobre papel" loading="lazy"><div class="body"><span class="n">3 · Anclaje</span><h3>Una semilla para tu semana</h3><p>No te vas con tareas que te abrumen: te llevas un pequeño ritual y un permiso para sostener lo que despertó.</p></div></article>
+  </div>
+</section>
+
+<section class="band sand">
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:720px">
+      <p class="eyebrow">El proceso completo</p>
+      <h2>Seis encuentros, <span class="accent">un camino a tu medida</span></h2>
+    </div>
+    <div class="map-note"><b>Todo empieza con tu mapa</b><span>Antes de la primera sesión respondes el Diagnóstico Profundo. Con ese mapa de tu energía, tus barreras y tus pilotos automáticos diseñamos juntos el plan de tu proceso.</span></div>
+    <ol class="arc">
+      <li><span class="n">Sesión 1</span><b>Tu mapa y tu norte</b><span>Leemos tu mapa y definimos los objetivos del proceso.</span></li>
+      <li><span class="n">Sesión 2</span><b>Lo que pesa</b><span>Sacamos afuera la carga principal que mostró tu mapa.</span></li>
+      <li><span class="n">Sesión 3</span><b>Tus pilotos automáticos</b><span>Los mandatos que aprendiste y el permiso que los suelta.</span></li>
+      <li><span class="n">Sesión 4</span><b>Tu voz y tus vínculos</b><span>Comunicación honesta, límites y gestión de tus emociones.</span></li>
+      <li><span class="n">Sesión 5</span><b>Tu nuevo orden</b><span>Valores, prioridades y decisiones alineadas contigo.</span></li>
+      <li><span class="n">Sesión 6</span><b>Cierre y siembra</b><span>Un ritual para sostener lo vivido y tu siguiente paso.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="wrap band">
+  <div class="split">
+    <img src="../img/mentorias/d-collage.webp" alt="Manos que arman un collage con tiras de papel azul y amarillo" loading="lazy" style="aspect-ratio:4/3">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;flex-direction:column;gap:12px"><p class="eyebrow">Este espacio es para ti si…</p>
+      <ul class="list"><li>Sientes que perdiste el rumbo y quieres herramientas creativas para reencontrarte.</li><li>Atraviesas un periodo de vacío o de cansancio y buscas claridad.</li><li>Quieres una mentoría que hable a tu mente, a tu cuerpo y a tu corazón.</li></ul></div>
+      <div style="display:flex;flex-direction:column;gap:12px"><p class="eyebrow">Lo que te llevas</p>
+      <ul class="list"><li>Comprensión clara de tus patrones y de tu poder personal.</li><li>Liberación de cargas del pasado y de bloqueos creativos.</li><li>Confianza en tu valor, desde la raíz.</li><li>Una comunicación honesta con lo que sientes.</li><li>Claridad entre tus valores y tus metas.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap book" id="agendar">
+  <div class="card">
+    <div class="text">
+      <p class="eyebrow">Tu proceso</p>
+      <h2>Tú puedes ser <span class="accent">tu propio lugar seguro</span></h2>
+      <p>Escríbeme y agendamos tu primera sesión. Antes de empezar te comparto el Diagnóstico Profundo.</p>
+      <div class="actions">
+        <a class="btn sun" href="../agenda/" target="_blank" rel="noopener">Agenda tu primera sesión →</a>
+        <a class="btn line" href="https://wa.me/573208857608?text=Hola%20Nathalia%2C%20quiero%20saber%20m%C3%A1s%20de%20El%20Despertar%20Interior" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
+    </div>
+    <div class="prices">
+      <div><span>Proceso de 6 sesiones<small>Una cada 8 a 10 días · $208.333 por sesión</small></span><b>$1.250.000</b></div>
+      <div><span>Sesión individual<small>90 minutos</small></span><b>$250.000</b></div>
+      <p class="fine">Valores antes de IVA. Si necesitas factura se suma el 19 %.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="care">
+  <div class="wrap">
+    <p><b>Mi trabajo acompaña y complementa, pero no reemplaza la atención psicológica ni médica.</b></p>
+    <p>© 2026 Nathalia Andrea Velasco · <a href="../privacidad/">Política de privacidad</a></p>
+  </div>
+</footer>
+<a href="https://wa.me/573208857608?text=Hola%20Nathalia%2C%20quiero%20saber%20m%C3%A1s%20de%20El%20Despertar%20Interior" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp" class="wa-fab"><span class="wa-label">Escríbeme</span><span class="wa-dot"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#FFFFFF" d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.3 28.8l6.6-1.7A12.7 12.7 0 1 0 16 3.2Zm0 23.2c-2 0-3.9-.5-5.5-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.5 10.5 0 1 1 16 26.4Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.2 2.8 6.5 6.5 0 0 0 1.4 3.4 14.7 14.7 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.1-.3-.2-.6-.4Z"/></svg></span></a>
+</body>
+</html>
