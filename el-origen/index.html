@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El Origen · Cuatro Estaciones · Nathalia Andrea Velasco</title>
+<meta name="description" content="Membresía de bienestar regenerativo: cuatro sábados de 5 horas con arte, naturaleza y cuerpo, en grupos de máximo 15 personas.">
+<meta property="og:title" content="El Origen · Cuatro Estaciones · Nathalia Andrea Velasco">
+<meta property="og:description" content="Membresía de bienestar regenerativo: cuatro sábados de 5 horas con arte, naturaleza y cuerpo, en grupos de máximo 15 personas.">
+<meta property="og:image" content="../img/origen/o-hero.webp">
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one warm column that breathes like a session — arrive (hero), let go (the four routes), take a seed (how it works), book. */
+:root{
+  --paper:#FFFCF8; --sand:#FBF3EA; --mint:#EAF4F3; --ink:#0B3B3D; --ink-2:#234C4E; --soft:#5D7778;
+  --sun:#E38C19; --sun-dark:#B96F0C; --peach:#F6A27A; --clay:#8C3300; --line:#E8DCCF; --white:#FFFFFF;
+  --font:'Raleway',ui-sans-serif,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.65}
+img{display:block;max-width:100%}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:24px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:18px}
+.top img{height:50px;width:auto}
+.top a.back{font-size:15px;font-weight:500;text-decoration:none}
+.eyebrow{margin:0;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--clay)}
+.accent{font-style:italic;font-weight:500;color:var(--sun)}
+h1,h2,h3{margin:0;text-wrap:balance;color:var(--ink)}
+h1{font-weight:300;font-size:clamp(38px,5.6vw,68px);line-height:1.07;letter-spacing:-.01em}
+h2{font-weight:300;font-size:clamp(30px,3.8vw,46px);line-height:1.15}
+h3{font-weight:600;font-size:22px;line-height:1.25}
+p{margin:0}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:16px;border-radius:999px;padding:15px 26px;text-align:center}
+.btn.sun{background:var(--sun);color:var(--white);box-shadow:0 10px 24px rgba(227,140,25,.3)}
+.btn.sun:hover{background:var(--sun-dark);color:var(--white)}
+.btn.line{border:1.5px solid var(--ink);color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:var(--white)}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center;padding-block:40px 88px}
+.hero .text{display:flex;flex-direction:column;gap:20px}
+.hero .lead{font-size:20px;color:var(--ink-2);max-width:560px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.hero .price{font-size:15px;color:var(--soft)}
+.hero .price b{color:var(--ink);font-size:18px}
+.hero figure{margin:0;position:relative}
+.hero figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:240px 240px 28px 28px}
+.hero figcaption{position:absolute;left:-28px;bottom:36px;background:var(--white);border-radius:18px;padding:14px 18px;font-size:15px;box-shadow:0 14px 34px rgba(11,59,61,.14);max-width:240px}
+.hero figcaption b{display:block;font-size:26px;font-weight:300;color:var(--sun);line-height:1}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding-block:20px 64px}.hero figcaption{left:12px}}
+/* not therapy */
+.pause{background:var(--ink);color:var(--white)}
+.pause .wrap{padding-block:72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:48px;align-items:start}
+.pause h2{color:var(--white)}
+.pause .intro{display:flex;flex-direction:column;gap:16px}
+.pause .intro p{color:#D9EDEC}
+.times{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.times li{border-top:2px solid var(--peach);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+.times b{font-size:20px;font-weight:600}
+.times span{color:#C9DEDD;font-size:16px}
+@media (max-width:860px){.pause .wrap{grid-template-columns:1fr;padding-block:56px}.times{grid-template-columns:1fr}}
+/* routes */
+.routes{padding-block:88px;display:flex;flex-direction:column;gap:40px}
+.routes .head{display:flex;flex-direction:column;gap:12px;max-width:720px}
+.routes .head p{color:var(--ink-2)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+.route{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.route img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.route .body{padding:22px;display:flex;flex-direction:column;gap:10px}
+.route .tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--sun)}
+.route p{font-size:16px;color:var(--ink-2)}
+.route .for{margin-top:auto;padding-top:10px;border-top:1px dashed var(--line);font-size:14px;color:var(--soft)}
+/* how */
+.how{background:var(--sand)}
+.how .wrap{padding-block:88px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.how figure{margin:0}
+.how figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:28px}
+.how .text{display:flex;flex-direction:column;gap:18px}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
+.steps li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;align-items:start}
+.steps .n{width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--white);display:grid;place-items:center;font-weight:700}
+.steps b{display:block;font-size:18px}
+.steps span{color:var(--ink-2);font-size:16px}
+@media (max-width:860px){.how .wrap{grid-template-columns:1fr;padding-block:64px}.how figure{order:2}}
+/* book */
+.book{padding-block:88px}
+.book .card{background:var(--mint);border-radius:28px;padding:48px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:center}
+.book .card .text{display:flex;flex-direction:column;gap:14px}
+.prices{display:flex;flex-direction:column;gap:14px}
+.prices div{background:var(--white);border-radius:18px;padding:18px 22px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.prices b{font-size:26px;font-weight:600;font-variant-numeric:tabular-nums}
+.prices small{display:block;color:var(--soft);font-size:14px}
+.book .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.fine{font-size:14px;color:var(--soft)}
+@media (max-width:860px){.book .card{grid-template-columns:1fr;padding:30px 22px}}
+/* care */
+.care{border-top:1px solid var(--line)}
+.care .wrap{padding-block:40px 64px;display:flex;flex-direction:column;gap:10px;max-width:860px}
+.care p{font-size:15px;color:var(--soft)}
+.care b{color:var(--ink)}
+.care a{color:var(--soft)}
+/* whatsapp */
+.wa-fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;align-items:center;gap:12px;text-decoration:none}
+.wa-label{background:var(--ink);color:var(--white);font-weight:600;font-size:15px;padding:10px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.wa-dot{width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.45)}
+@media (max-width:560px){.wa-label{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* fases y semanas */
+.phases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media (max-width:900px){.phases{grid-template-columns:1fr}}
+.phase{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.phase img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.phase .body{padding:22px;display:flex;flex-direction:column;gap:8px}
+.phase .n{font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--sun)}
+.phase p{font-size:16px;color:var(--ink-2)}
+.arc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.arc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.arc{grid-template-columns:1fr}}
+.arc li{background:var(--white);border-radius:18px;padding:18px 20px;border:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.arc .n{font-size:13px;font-weight:700;color:var(--clay);letter-spacing:.1em;text-transform:uppercase}
+.arc b{font-size:18px}
+.arc span{font-size:15px;color:var(--ink-2)}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.list li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start;color:var(--ink-2)}
+.list li::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--sun);margin-top:9px;margin-left:6px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+@media (max-width:860px){.split{grid-template-columns:1fr;gap:28px}}
+.split img{width:100%;border-radius:24px;object-fit:cover}
+.band{padding-block:88px}
+.band.sand{background:var(--sand)}
+.band.mint{background:var(--mint)}
+.band .wrap{display:flex;flex-direction:column;gap:28px}
+.map-note{background:var(--white);border-left:4px solid var(--sun);border-radius:0 18px 18px 0;padding:20px 24px;display:flex;flex-direction:column;gap:6px}
+.company{background:var(--ink);color:var(--white);border-radius:28px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.company img{width:100%;height:100%;object-fit:cover;min-height:280px}
+.company .text{padding:40px;display:flex;flex-direction:column;gap:14px}
+.company h2{color:var(--white)}
+.company p,.company li{color:#D9EDEC}
+.company .list li::before{background:var(--peach)}
+@media (max-width:860px){.company{grid-template-columns:1fr}.company .text{padding:28px 22px}}
+.btn.peach{background:var(--peach);color:var(--ink)}
+.route-band{background:var(--ink);padding-block:88px}
+.route-band .wrap{display:flex;flex-direction:column;gap:44px}
+.route5{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;position:relative}
+.route5::before{content:"";position:absolute;left:10%;right:10%;top:34px;border-top:3px dashed var(--peach);opacity:.7}
+.route5 li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
+.route5 .dot{width:68px;height:68px;border-radius:50%;background:var(--ink);border:3px solid var(--peach);color:var(--peach);display:grid;place-items:center;font-size:28px;font-weight:300;margin-bottom:6px}
+.route5 .wk{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--peach)}
+.route5 b{color:var(--white);font-size:18px;line-height:1.25}
+.route5 .tx{color:#C9DEDD;font-size:15px}
+@media (max-width:900px){.route5{grid-template-columns:1fr;gap:26px}.route5::before{left:33px;right:auto;top:20px;bottom:20px;border-top:0;border-left:3px dashed var(--peach)}.route5 li{display:grid;grid-template-columns:68px minmax(0,1fr);text-align:left;align-items:start;column-gap:18px;row-gap:4px}.route5 .dot{grid-row:span 3;margin:0}}
+
+</style>
+<script data-goatcounter="https://nathaliavelasco.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>function gcEvento(p,t){try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:p,title:t,event:true})}catch(e){}}document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me"]');if(a)gcEvento("clic-whatsapp","Clic en WhatsApp")});</script>
+</head>
+<body>
+<header class="wrap top">
+  <a href="../"><img src="../img/firma.png" alt="Nathalia Velasco"></a>
+  <a class="back" href="../#acompanamientos">← Volver al inicio</a>
+</header>
+<main>
+
+<style>
+.phases.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1100px){.phases.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.phases.four{grid-template-columns:1fr}}
+.phase .rev{font-style:italic;color:var(--clay);font-size:15px;border-top:1px dashed var(--line);padding-top:10px;margin-top:4px}
+.phase h3{font-size:20px}
+.manif{display:flex;flex-direction:column;gap:14px}
+.manif p:not(.eyebrow){font-size:18px;color:var(--ink-2)}
+.manif p.last{font-weight:600;color:var(--ink)}
+</style>
+<section class="wrap hero">
+  <div class="text">
+    <p class="eyebrow">Membresía en grupo · El Origen</p>
+    <h1>Regresa a ti para <span class="accent">decidir mejor</span></h1>
+    <p class="lead">No es un descanso, es una restauración. El Origen es una membresía de bienestar regenerativo para profesionales que necesitan soltar el peso del día a día y volver a su propio equilibrio. Usamos el arte, la naturaleza y el cuerpo para desenredar el cansancio acumulado, para que vuelvas a sentirte tú y recuperes tu claridad.</p>
+    <div class="actions">
+      <a class="btn sun" href="../agenda/" target="_blank" rel="noopener">Reservar mi lugar →</a>
+      <a class="btn line" href="#estaciones">Conoce las estaciones</a>
+    </div>
+    <p class="price"><b>$1.325.000</b> la membresía de 4 estaciones · Estación individual: $365.000</p>
+  </div>
+  <figure>
+    <img src="../img/origen/o-hero.webp" alt="Nathalia sentada en el piso de un salón, frente a vasos con lápices de colores" fetchpriority="high">
+    <figcaption><b>4 sábados</b>de 5 horas, uno al mes</figcaption>
+  </figure>
+</section>
+
+<section class="pause">
+  <div class="wrap">
+    <div class="intro">
+      <p class="eyebrow" style="color:var(--peach)">Bienestar regenerativo</p>
+      <h2>No eres una máquina que se repara. <span class="accent" style="color:var(--peach)">Eres un ecosistema vivo que se regenera.</span></h2>
+      <p>El bienestar de siempre alivia el cansancio de hoy. El Origen va a la raíz: me inspiro en el micelio y en los ecosistemas, que saben renovarse desde adentro, para crear experiencias que le devuelven al cuerpo y a la mente su ritmo natural. No se trata de escapar del trabajo, sino de reconstruir lo que la presión ha desgastado.</p>
+    </div>
+    <ol class="times">
+      <li><b>Arte</b><span>El trazo hace visible lo que pesa y lo vuelve forma.</span></li>
+      <li><b>Naturaleza</b><span>Los cerros, la tierra y el silencio para que la atención descanse.</span></li>
+      <li><b>Comunidad</b><span>Grupos de máximo 15 personas. Nadie se regenera solo.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="wrap band" id="estaciones">
+  <div style="display:flex;flex-direction:column;gap:12px;max-width:760px">
+    <p class="eyebrow">La ruta · Una estación por mes</p>
+    <h2>Cuatro estaciones para <span class="accent">habitarte</span></h2>
+    <p class="lead" style="margin:0">Cada estación dura 5 horas, los sábados de 8:00 a.m. a 1:00 p.m., para que la desconexión sea real.</p>
+  </div>
+  <div class="phases four" style="margin-top:32px">
+    <article class="phase"><img src="../img/origen/o-yogarte.webp" alt="Nathalia con las manos en el cuello, guiando un ejercicio de respiración" loading="lazy"><div class="body"><span class="n">Estación 1 · Yogarte</span><h3>El cuerpo como raíz</h3><p>Yoga restaurativo al aire libre en los cerros de Bogotá y una obra de land art en grupo. Soltamos la presión de los hombros de quien cuida a todos.</p><p class="rev">"Dejar de caminar para llegar; empezar a caminar para estar."</p></div></article>
+    <article class="phase"><img src="../img/origen/o-khuyai.webp" alt="Un dibujo de una figura humana rodeada de trazos rojos, con mariposas de papel alrededor" loading="lazy"><div class="body"><span class="n">Estación 2 · Khuyai</span><h3>El pensamiento visible</h3><p>Un taller de arte y dibujo en un estudio privado. El trazo hace visible el ruido de la mente y lo convierte en forma.</p><p class="rev">Recuperar la alegría de crear sin juicio.</p></div></article>
+    <article class="phase"><img src="../img/origen/o-brujula.webp" alt="Una acuarela de una figura humana junto a una carta de geometría y una lista de palabras" loading="lazy"><div class="body"><span class="n">Estación 3 · Brújula Cultural</span><h3>Curaduría de sentido</h3><p>Un recorrido privado por un museo o una galería de Bogotá, guiado por Nathalia. No vemos cuadros: vemos historias que hablan de nuestro momento.</p><p class="rev">Salir de la monotonía y alimentar la curiosidad.</p></div></article>
+    <article class="phase"><img src="../img/origen/o-tinta.webp" alt="Una mano escribe palabras sobre una hoja blanca, junto a una carta de colores" loading="lazy"><div class="body"><span class="n">Estación 4 · Tinta y Café</span><h3>La red que sostiene</h3><p>Un círculo de lectura en un café de autor, en la Zona G o en Quinta Camacho. Escribimos nuestras propias recetas para el alma en el cuaderno de El Origen.</p><p class="rev">Reconocerte en la red: nadie se regenera solo.</p></div></article>
+  </div>
+</section>
+
+<section class="band sand">
+  <div class="wrap">
+    <div class="split">
+      <img src="../img/origen/o-grupo.webp" alt="Hojas blancas con cartas de colores y vasos de lápices ordenados en círculo sobre el piso de un salón" loading="lazy" style="aspect-ratio:4/3">
+      <div class="manif">
+        <p class="eyebrow">Manifiesto</p>
+        <p>Vivimos en la ciudad de las agendas blindadas y las almas en pausa. Nos volvimos expertos en medir indicadores de éxito, mientras nuestra propia vitalidad se gasta en el asfalto.</p>
+        <p>El Origen es un recorrido de cuatro estaciones para quienes sostienen el mundo sobre sus hombros. Es el permiso para dejar de ser el báculo de otros y dejar que la tierra, el arte y el silencio te sostengan a ti.</p>
+        <p class="last">Porque para liderar afuera, primero hay que estar bien adentro. Hagamos este viaje más liviano.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap band">
+  <div class="split" style="align-items:start">
+    <div style="display:flex;flex-direction:column;gap:12px"><p class="eyebrow">Este espacio es para ti si…</p>
+    <ul class="list"><li>Estás bien, pero notas que el cansancio empieza a avisar.</li><li>Ya pasaste por un Oasis o una mentoría y quieres sostener lo que lograste.</li><li>Llevas mucho tiempo sosteniendo a otros y quieres que, por unas horas, te sostengan a ti.</li><li>Quieres hacer el camino con otras personas que también están volviendo a sí mismas.</li></ul></div>
+    <div style="display:flex;flex-direction:column;gap:12px"><p class="eyebrow">Lo que te llevas</p>
+    <ul class="list"><li>Una pausa real, una vez al mes.</li><li>Herramientas de arte y de cuerpo para usar en tu semana.</li><li>Tu cuaderno de El Origen, con tus propias recetas para el alma.</li><li>Una red de personas que entienden lo que vives.</li></ul></div>
+  </div>
+  <div class="map-note" style="margin-top:36px"><b>¿No sabes por dónde empezar?</b><span>Haz el ejercicio <a href="../mundo-interior/" style="color:var(--clay);font-weight:600">Mundo Interior</a>: en 5 minutos te muestra cómo estás y por cuál estación te conviene empezar.</span></div>
+</section>
+
+<section class="wrap book" id="agendar">
+  <div class="card">
+    <div class="text">
+      <p class="eyebrow">Tu lugar en El Origen</p>
+      <h2>Hagamos este viaje <span class="accent">más liviano</span></h2>
+      <p>Escríbeme para conocer las fechas del próximo ciclo y reservar tu lugar. Los grupos son de máximo 15 personas.</p>
+      <div class="actions">
+        <a class="btn sun" href="../agenda/" target="_blank" rel="noopener">Reservar mi lugar →</a>
+        <a class="btn line" href="https://wa.me/573208857608?text=Hola%20Nathalia%2C%20quiero%20saber%20las%20fechas%20de%20El%20Origen" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
+    </div>
+    <div class="prices">
+      <div><span>Membresía · 4 estaciones<small>Un sábado al mes · $331.250 por estación</small></span><b>$1.325.000</b></div>
+      <div><span>Estación individual<small>5 horas</small></span><b>$365.000</b></div>
+      <div><span>Aliados<small>Si llegas por una empresa u organización con convenio</small></span><b>$1.125.000</b></div>
+      <p class="fine">Valores antes de IVA. Si necesitas factura se suma el 19 %.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="care">
+  <div class="wrap">
+    <p><b>Mi trabajo acompaña y complementa, pero no reemplaza la atención psicológica ni médica.</b></p>
+    <p>© 2026 Nathalia Andrea Velasco · <a href="../privacidad/">Política de privacidad</a></p>
+  </div>
+</footer>
+<a href="https://wa.me/573208857608?text=Hola%20Nathalia%2C%20quiero%20saber%20m%C3%A1s%20de%20El%20Origen" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp" class="wa-fab"><span class="wa-label">Escríbeme</span><span class="wa-dot"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#FFFFFF" d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.3 28.8l6.6-1.7A12.7 12.7 0 1 0 16 3.2Zm0 23.2c-2 0-3.9-.5-5.5-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.5 10.5 0 1 1 16 26.4Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.2 2.8 6.5 6.5 0 0 0 1.4 3.4 14.7 14.7 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.1-.3-.2-.6-.4Z"/></svg></span></a>
+</body>
+</html>
