@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /diagnostico-profundo/
+Sitemap: https://nathaliaandreavelasco.com/sitemap.xml

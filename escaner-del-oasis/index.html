@@ -90,6 +90,8 @@ footer{max-width:760px;margin:0 auto;padding:0 20px 48px;font-size:14px;color:va
 footer a{color:var(--soft)}
 @media (prefers-reduced-motion:reduce){.fade{animation:none}.bar i{transition:none}}
 </style>
+<script data-goatcounter="https://nathaliaandreavelasco.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>function gcEvento(p,t){try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:p,title:t,event:true})}catch(e){}}document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me"]');if(a)gcEvento("clic-whatsapp","Clic en WhatsApp")});</script>
 </head>
 <body>
 <header class="top">
@@ -237,6 +239,7 @@ function decide(){
 }
 
 function result(){
+  window.gcEvento&&gcEvento("escaner-completado","Terminó el escáner del Oasis");
   var r=decide(), T=TECH[r.pick];
   render('<div class="bar"><i style="width:100%"></i></div>'+
   (r.alerta?'<div class="note alert"><strong>Antes de tu Oasis, una pausa de cuidado</strong><span>Marcaste que vives en alerta constante y que el miedo o la angustia te paralizan. El Oasis puede acompañarte, y también es importante que cuentes con apoyo profesional. Si sientes que no puedes más, busca ayuda ahora: Línea 106 (Bogotá) · Línea Púrpura 018000 112 137 (mujeres) · 123 (emergencias).</span></div>':'')+

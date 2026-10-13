@@ -65,6 +65,8 @@ button.send:hover{background:#CC7A10}
 .wa-dot{width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.45)}
 @media (max-width:560px){.wa-label{display:none}}
 </style>
+<script data-goatcounter="https://nathaliaandreavelasco.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>function gcEvento(p,t){try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:p,title:t,event:true})}catch(e){}}document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me"]');if(a)gcEvento("clic-whatsapp","Clic en WhatsApp")});</script>
 </head>
 <body>
 <header class="top">
@@ -162,6 +164,7 @@ document.getElementById('f').addEventListener('submit', function (e) {
     nombre: v('nombre'), correo: v('correo'), tel: v('tel'),
     interes: v('interes'), msg: v('msg'), web: v('web'), origen: 'Agenda tu sesión', autoriza: 'si'
   });
+  window.gcEvento&&gcEvento("agenda-enviada","Envió solicitud de agenda");
   fetch(HOJA_URL, { method: 'POST', mode: 'no-cors', body: datos }).catch(function () {});
   document.querySelectorAll('#f > :not(#thanks):not(.alt)').forEach(function (el) { el.hidden = true; });
   document.getElementById('wa-after').href = wa;
