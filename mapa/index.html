@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mapa de viaje · Nathalia Andrea Velasco</title>
+<meta name="description" content="La ruta de acompañamiento de Nathalia Andrea Velasco en cinco estaciones: Mundo Interior, Oasis Regenerativo, el Diagnóstico Profundo, las mentorías y El Origen.">
+<meta property="og:title" content="Mapa de viaje · Nathalia Andrea Velasco">
+<meta property="og:description" content="La ruta de acompañamiento de Nathalia Andrea Velasco en cinco estaciones: Mundo Interior, Oasis Regenerativo, el Diagnóstico Profundo, las mentorías y El Origen.">
+<meta property="og:image" content="https://nathaliaandreavelasco.com/img/hero.webp">
+<link rel="canonical" href="https://nathaliaandreavelasco.com/mapa/">
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<script data-goatcounter="https://nathaliavelasco.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>function gcEvento(p,t){try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:p,title:t,event:true})}catch(e){}}document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me"]');if(a)gcEvento("clic-whatsapp","Clic en WhatsApp")});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
+<style>
+/* Layout: una ruta vertical. Cada estación es una parada sobre una línea continua; la marca de Nathalia (verde petróleo, sol, arcilla) y Raleway. */
+:root{
+  --bg:#FFFCF8; --sand:#FBF3EA; --card:#FFFFFF; --ink:#0B3B3D; --ink-2:#234C4E; --soft:#5D7778;
+  --line:#E8DCCF; --sun:#E38C19; --clay:#8C3300; --mint:#EAF4F3; --peach:#F6A27A;
+  --band:#0B3B3D; --on-band:#FFFCF8;
+  --font:'Raleway',ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E2223; --sand:#132B2C; --card:#163233; --ink:#F3ECE2; --ink-2:#D8E4E2; --soft:#A2B8B7;
+  --line:#2A4647; --sun:#F2A23C; --clay:#F6A27A; --mint:#183A3B; --peach:#F6A27A;
+  --band:#08191A; --on-band:#F3ECE2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E2223; --sand:#132B2C; --card:#163233; --ink:#F3ECE2; --ink-2:#D8E4E2; --soft:#A2B8B7;
+  --line:#2A4647; --sun:#F2A23C; --clay:#F6A27A; --mint:#183A3B; --peach:#F6A27A;
+  --band:#08191A; --on-band:#F3ECE2; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink-2);font-family:var(--font);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--clay);font-weight:600}
+a:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
+h1,h2,h3{color:var(--ink);line-height:1.15;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:1040px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--clay)}
+.num{font-variant-numeric:tabular-nums}
+
+/* Encabezado */
+header{background:var(--band);color:var(--on-band)}
+header .wrap{padding-block:56px 48px;display:grid;gap:18px}
+header .eyebrow{color:var(--peach)}
+header h1{color:var(--on-band);font-size:clamp(38px,6vw,64px);font-weight:700;letter-spacing:-.015em}
+header h1 em{font-style:italic;font-weight:500;color:var(--sun)}
+header p.lead{font-size:clamp(17px,2vw,20px);max-width:62ch;color:color-mix(in srgb,var(--on-band) 85%,transparent)}
+.stops{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.stops li{border-top:3px solid var(--sun);padding-top:10px;display:grid;gap:2px;font-size:14.5px;line-height:1.35}
+.stops li b{font-size:13px;letter-spacing:.1em;color:var(--peach)}
+.stops a{color:var(--on-band);font-weight:600;text-decoration:none}
+.stops a:hover{text-decoration:underline}
+@media (max-width:760px){.stops{grid-template-columns:1fr 1fr}}
+
+/* Puertas de entrada */
+.doors{padding-block:48px 8px;display:grid;gap:18px}
+.doors h2{font-size:clamp(26px,3.4vw,34px)}
+.door-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.door{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 20px;display:grid;gap:8px;align-content:start}
+.door .lvl{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.door h3{font-size:19px}
+.door .go{font-weight:600;color:var(--ink)}
+.door.care{background:var(--mint)}
+@media (max-width:820px){.door-grid{grid-template-columns:1fr}}
+
+/* Ruta */
+.route{padding-block:40px 24px}
+.route>.wrap{display:grid;gap:0}
+.station{display:grid;grid-template-columns:72px minmax(0,1fr);gap:0 22px}
+.rail{display:flex;flex-direction:column;align-items:center}
+.dot{width:56px;height:56px;border-radius:50%;background:var(--band);color:var(--sun);display:grid;place-items:center;font-size:22px;font-weight:700;flex:none}
+.rail::after{content:"";flex:1;width:3px;background:linear-gradient(var(--sun),var(--line));margin-block:6px;border-radius:2px}
+.station:last-child .rail::after{display:none}
+.st-body{padding-bottom:44px;display:grid;gap:14px;min-width:0}
+.st-body h2{font-size:clamp(26px,3.6vw,36px)}
+.st-body .sub{font-size:18px;font-style:italic;color:var(--soft);margin-top:-4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:var(--sand);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px}
+.cols h4{margin:0 0 4px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--clay)}
+.cols ul{margin:0;padding-left:18px;display:grid;gap:4px}
+@media (max-width:720px){.cols{grid-template-columns:1fr}.station{grid-template-columns:44px minmax(0,1fr);gap:0 14px}.dot{width:40px;height:40px;font-size:17px}}
+.price{display:flex;flex-wrap:wrap;gap:8px 24px;border-block:1px dashed var(--line);padding-block:12px}
+.price div{display:grid}
+.price small{font-size:13px;color:var(--soft)}
+.price b{font-size:20px;color:var(--ink)}
+.next{display:flex;gap:10px;align-items:baseline;font-size:16px}
+.next::before{content:"→";color:var(--sun);font-weight:700}
+.sub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.sub-grid>div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:6px;align-content:start}
+.sub-grid h3{font-size:19px}
+.four{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.four div{background:var(--sand);border-radius:10px;padding:12px;display:grid;gap:2px;font-size:15px;line-height:1.4}
+.four b{color:var(--ink)}
+.four small{color:var(--clay);font-weight:600}
+@media (max-width:760px){.sub-grid{grid-template-columns:1fr}.four{grid-template-columns:1fr 1fr}}
+
+/* Arquetipos */
+.arch{background:var(--sand);border-block:1px solid var(--line)}
+.arch .wrap{padding-block:52px;display:grid;gap:18px}
+.arch h2{font-size:clamp(26px,3.4vw,34px)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:15px;line-height:1.45}
+th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}
+th{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);background:var(--mint)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700;color:var(--ink);width:19%}
+td.q{font-style:italic}
+
+/* Cuidado y medición */
+.care-sec .wrap{padding-block:52px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.box{border-radius:14px;padding:22px;display:grid;gap:10px;align-content:start}
+.box.a{background:var(--mint)}
+.box.b{background:var(--card);border:1px solid var(--line)}
+.box h2{font-size:24px}
+.box ul{margin:0;padding-left:18px;display:grid;gap:6px}
+@media (max-width:760px){.care-sec .wrap{grid-template-columns:1fr}}
+
+footer{background:var(--band);color:var(--on-band)}
+footer .wrap{padding-block:40px;display:grid;gap:10px}
+footer p{max-width:64ch}
+footer a{color:var(--sun)}
+footer .small{font-size:14px;color:color-mix(in srgb,var(--on-band) 70%,transparent)}
+</style>
+<style>body{margin:0}.backbar{background:var(--band);padding-block:14px 0}.backbar a{color:var(--peach);font-size:15px;text-decoration:none}</style>
+</head>
+<body>
+<div class="backbar"><div class="wrap"><a href="../">← Volver al inicio</a></div></div>
+
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Ruta de acompañamiento · Nathalia Andrea Velasco</p>
+    <h1>Mapa de viaje: <em>de lo que pesa a la levedad</em></h1>
+    <p class="lead">Cinco estaciones para profesionales que sostienen mucho. Nadie recorre el mapa igual: cada persona entra por la puerta que le corresponde y avanza a su ritmo. El arte, el cuerpo y la conversación son el vehículo; la meta es volver a decidir con claridad.</p>
+    <ol class="stops">
+      <li><b>1</b><a href="#mundo-interior">Mundo Interior</a></li>
+      <li><b>2</b><a href="#oasis">Oasis Regenerativo</a></li>
+      <li><b>3</b><a href="#diagnostico">El Diagnóstico Profundo</a></li>
+      <li><b>4</b><a href="#mentorias">Mentorías individuales</a></li>
+      <li><b>5</b><a href="#origen">El Origen</a></li>
+    </ol>
+  </div>
+</header>
+
+<main>
+<section class="wrap doors" aria-labelledby="t-doors">
+  <p class="eyebrow">Las puertas de entrada</p>
+  <h2 id="t-doors">Mundo Interior decide por dónde empezar</h2>
+  <p style="max-width:66ch">Todas las personas empiezan con el ejercicio Mundo Interior. Su resultado tiene tres niveles, y cada nivel abre una puerta distinta del mapa.</p>
+  <div class="door-grid">
+    <div class="door"><p class="lvl">Nivel 1</p><h3>Cansancio que avisa</h3><p>La casa sigue en pie, pero el ruido empieza a desgastar las esquinas. Es el mejor momento para cuidarse.</p><p class="go">Entra directo a la Estación 5 · El Origen</p></div>
+    <div class="door"><p class="lvl">Nivel 2</p><h3>Carga que pesa</h3><p>Sostiene más de lo que el cuerpo y la mente pueden cargar solos. Necesita una pausa y luego ordenar.</p><p class="go">Entra por la Estación 2 · Oasis Regenerativo</p></div>
+    <div class="door care"><p class="lvl">Nivel 3</p><h3>Necesitas más apoyo</h3><p>Lo que vive merece más de una mano. Primero, una cita con psicología o con su médico.</p><p class="go">El Oasis puede acompañar ese camino, nunca reemplazarlo</p></div>
+  </div>
+</section>
+
+<section class="route" aria-label="Las cinco estaciones">
+  <div class="wrap">
+
+    <article class="station" id="mundo-interior">
+      <div class="rail"><span class="dot num">1</span></div>
+      <div class="st-body">
+        <p class="eyebrow">Estación 1 · El diagnóstico de entrada</p>
+        <h2>Mundo Interior</h2>
+        <p class="sub">El momento en que el vaso empieza a rebosarse.</p>
+        <div class="chips"><span>Gratuito</span><span>En línea</span><span>5 minutos</span><span>26 preguntas</span></div>
+        <div class="cols">
+          <div><h4>Qué vive la persona</h4><p>El ruido no se apaga, el cuerpo avisa y el ritmo de los días ya no es propio. Muchas veces no sabe qué le pasa ni qué pedir.</p></div>
+          <div><h4>Qué pasa en la estación</h4><ul><li>Dos preguntas sobre su momento definen su arquetipo.</li><li>Doce señales de agotamiento y sobrecarga.</li><li>Doce preguntas sobre cómo se ha sentido, inspiradas en el cuestionario de salud general de Goldberg.</li><li>Recibe su nivel, su arquetipo, un ejercicio de arte y respiración, y la ruta que le propongo.</li></ul></div>
+        </div>
+        <p class="next">Abre la puerta que le corresponde según su nivel. Si autoriza, sus datos llegan a la agenda de Nathalia para escribirle.</p>
+        <p><a href="https://nathaliaandreavelasco.com/mundo-interior/" target="_blank" rel="noopener">nathaliaandreavelasco.com/mundo-interior</a></p>
+      </div>
+    </article>
+
+    <article class="station" id="oasis">
+      <div class="rail"><span class="dot num">2</span></div>
+      <div class="st-body">
+        <p class="eyebrow">Estación 2 · La pausa</p>
+        <h2>Oasis Regenerativo</h2>
+        <p class="sub">60 minutos para detener el ruido, soltar la carga y recuperar el aire.</p>
+        <div class="chips"><span>60 minutos</span><span>Presencial · Bogotá</span><span>Escáner de 5 preguntas</span><span>4 rutas</span></div>
+        <div class="cols">
+          <div><h4>Qué vive la persona</h4><p>Llega cargada. Antes de pensar en su vida necesita soltar: bajar los hombros, respirar, salir de la alerta.</p></div>
+          <div><h4>Qué pasa en la estación</h4><ul><li>Antes de llegar responde el Escáner del Oasis, que elige su ruta.</li><li>Vive una de cuatro rutas: trazo en movimiento, cuerpo consciente y aromas, reflexología o bioliberación facial.</li><li>Se lleva un microrritual para su semana.</li></ul></div>
+        </div>
+        <div class="price"><div><small>Una sesión</small><b class="num">$195.000</b></div><div><small>Paquete de 6 · $175.000 cada una</small><b class="num">$1.050.000</b></div></div>
+        <p class="next">Si en la sesión aparece un tema de fondo, la invitación es la Estación 3. Si lo que necesita es sostener el alivio, el paquete o El Origen.</p>
+        <p><a href="https://nathaliaandreavelasco.com/oasis/" target="_blank" rel="noopener">nathaliaandreavelasco.com/oasis</a></p>
+      </div>
+    </article>
+
+    <article class="station" id="diagnostico">
+      <div class="rail"><span class="dot num">3</span></div>
+      <div class="st-body">
+        <p class="eyebrow">Estación 3 · Mirar la raíz</p>
+        <h2>El Diagnóstico Profundo</h2>
+        <p class="sub">Con el cuerpo más liviano, ya se puede mirar por dentro sin asustarse.</p>
+        <div class="chips"><span>Sesión cero de las mentorías</span><span>90 minutos</span><span>103 preguntas</span><span>4 módulos</span></div>
+        <div class="cols">
+          <div><h4>Qué vive la persona</h4><p>Ya sintió alivio y quiere entender por qué vuelve a cargarse. Busca la raíz, no solo el síntoma del día.</p></div>
+          <div><h4>Qué pasa en la estación</h4><ul><li>Responde cuatro módulos: tu energía en el trabajo (inspirado en Maslach), lo que frena tu paso, la voz del impostor (inspirado en Clance) y tus pilotos automáticos (inspirado en Kahler).</li><li>Lo leemos juntas y elegimos por dónde empezar.</li><li>El resultado incluye su arquetipo y un mapa en PDF.</li></ul></div>
+        </div>
+        <div class="price"><div><small>Sesión cero</small><b class="num">$250.000</b></div><div><small>Si toma el paquete de mentorías</small><b>Se abona completa</b></div></div>
+        <p class="next">Abre la Estación 4: El Despertar Interior o Arquitectura del Cambio, según lo que mostró el mapa.</p>
+        <p style="font-size:15px;color:var(--soft)">El enlace del diagnóstico no es público: se envía solo a quien contrató la sesión cero.</p>
+      </div>
+    </article>
+
+    <article class="station" id="mentorias">
+      <div class="rail"><span class="dot num">4</span></div>
+      <div class="st-body">
+        <p class="eyebrow">Estación 4 · Reordenar la casa interna</p>
+        <h2>Mentorías individuales</h2>
+        <p class="sub">Dos caminos uno a uno, según lo que la persona necesita transformar.</p>
+        <div class="sub-grid">
+          <div>
+            <h3>El Despertar Interior</h3>
+            <p>Para quien vive inseguridad, se comunica mal o siente que sus vínculos se desgastan. Cada sesión trata un tema: llegar al aquí y al ahora, darle forma a lo que preocupa con arte y palabra, y una misión para la semana.</p>
+            <div class="price"><div><small>Sesión de 90 min</small><b class="num">$250.000</b></div><div><small>Paquete de 6, a su ritmo</small><b class="num">$1.250.000</b></div></div>
+            <p><a href="https://nathaliaandreavelasco.com/el-despertar-interior/" target="_blank" rel="noopener">Ver la página</a></p>
+          </div>
+          <div>
+            <h3>Arquitectura del Cambio</h3>
+            <p>Para quien deja la empresa, emprende o estrena cargo. Cinco semanas para diseñar la siguiente etapa sin perder la salud ni la claridad: dos sesiones de 2 horas y trabajo autónomo.</p>
+            <div class="price"><div><small>Proceso individual</small><b class="num">$1.350.000</b></div><div><small>Equipos de 4 a 12 personas</small><b>Cotización</b></div></div>
+            <p><a href="https://nathaliaandreavelasco.com/arquitectura-del-cambio/" target="_blank" rel="noopener">Ver la página</a></p>
+          </div>
+        </div>
+        <p class="next">Al cerrar el proceso, la invitación es El Origen, para sostener lo vivido en comunidad.</p>
+      </div>
+    </article>
+
+    <article class="station" id="origen">
+      <div class="rail"><span class="dot num">5</span></div>
+      <div class="st-body">
+        <p class="eyebrow">Estación 5 · El umbral</p>
+        <h2>El Origen · Cuatro Estaciones</h2>
+        <p class="sub">Dejar de verse como una máquina que se repara y empezar a verse como un ecosistema que se regenera.</p>
+        <div class="chips"><span>4 sábados · 8:00 a.m. a 1:00 p.m.</span><span>Grupos de máximo 15</span><span>Arte, naturaleza y cuerpo</span></div>
+        <div class="four">
+          <div><small>Sáb 7 nov</small><b>Yogarte</b>El cuerpo como raíz</div>
+          <div><small>Sáb 14 nov</small><b>Khuyai</b>El pensamiento visible</div>
+          <div><small>Sáb 21 nov</small><b>Brújula Cultural</b>Curaduría de sentido</div>
+          <div><small>Sáb 28 nov</small><b>Tinta y Café</b>La red que sostiene</div>
+        </div>
+        <div class="cols">
+          <div><h4>Quién llega</h4><ul><li>Entrada directa desde el nivel 1 de Mundo Interior, para prevenir.</li><li>Quien viene del Oasis o de una mentoría y quiere sostener lo que logró.</li></ul></div>
+          <div><h4>Qué incluye</h4><p>Materiales de arte, permisos de los lugares, refrigerio y el acompañamiento de Nathalia en mediación artística y en procesos de reparación emocional.</p></div>
+        </div>
+        <div class="price"><div><small>Estación individual</small><b class="num">$365.000</b></div><div><small>Membresía · 4 estaciones</small><b class="num">$1.325.000</b></div><div><small>Aliados con convenio</small><b class="num">$1.125.000</b></div></div>
+        <p class="next">Quien cierra el ciclo puede volver al siguiente. Si la persona habla por su equipo, el camino sigue hacia Simoné.</p>
+        <p><a href="https://nathaliaandreavelasco.com/el-origen/" target="_blank" rel="noopener">nathaliaandreavelasco.com/el-origen</a></p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="arch" aria-labelledby="t-arch">
+  <div class="wrap">
+    <p class="eyebrow">Los cinco arquetipos</p>
+    <h2 id="t-arch">Quién recorre el mapa y por dónde suele entrar</h2>
+    <p style="max-width:66ch">La persona no ve el nombre del arquetipo al elegir: se reconoce en una frase. El nombre aparece en su resultado.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Arquetipo</th><th>La frase con la que se reconoce</th><th>Lo que pesa</th><th>Ruta del Oasis</th><th>En El Origen empieza por</th></tr></thead>
+        <tbody>
+          <tr><td>Líder al Borde</td><td class="q">Le doy todo al trabajo y siento que para sostenerlo estoy quemando mi salud y mi vida familiar.</td><td>Sobrecarga</td><td>Bioliberación facial</td><td>Yogarte</td></tr>
+          <tr><td>Promovida o Promovido Autoexigente</td><td class="q">Tengo las capacidades, pero me da terror que descubran que no soy suficiente.</td><td>Inseguridad</td><td>Trazo en movimiento</td><td>Khuyai</td></tr>
+          <tr><td>Desembarcada o Desembarcado</td><td class="q">Mi valor estuvo pegado a una empresa o a un cargo. Ahora no sé quién soy sin esa estructura.</td><td>Identidad</td><td>Cuerpo consciente y aromas</td><td>Brújula Cultural</td></tr>
+          <tr><td>Tejedora o Tejedor de Visiones</td><td class="q">Tengo mil hilos en las manos y muchas ideas, pero me pierdo en mi propio caos.</td><td>Dispersión</td><td>Reflexología</td><td>Khuyai</td></tr>
+          <tr><td>Corazón sin Palabras</td><td class="q">Siento mucho, pero no sé cómo decirlo. Y cuando lo digo, sale mal.</td><td>Vínculos</td><td>Trazo en movimiento</td><td>Tinta y Café</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="care-sec">
+  <div class="wrap">
+    <div class="box a">
+      <p class="eyebrow">El límite del mapa</p>
+      <h2>Cuándo remitir</h2>
+      <p>Este acompañamiento es educativo y artístico. No reemplaza la atención en salud. Se recomienda pedir una cita con psicología o con el médico cuando:</p>
+      <ul><li>Mundo Interior da nivel 3, Necesitas más apoyo.</li><li>La persona habla de no poder sostener su día a día, de no dormir o de no comer durante semanas.</li><li>Aparece cualquier señal de riesgo para su vida o la de otros.</li></ul>
+      <p>En esos casos el Oasis puede acompañar, nunca reemplazar.</p>
+    </div>
+    <div class="box b">
+      <p class="eyebrow">Cómo se mide el viaje</p>
+      <h2>Tres preguntas en cada estación</h2>
+      <p>Al llegar y al salir, cada persona marca de 0 a 10 cuánta tensión siente en el cuerpo, cuánto ruido hay en su mente y cuánta calma siente. La diferencia muestra el cambio de cada sesión y, con el tiempo, el de todo el recorrido.</p>
+      <p>Cada servicio suma unas preguntas propias y dos preguntas abiertas. Solo se usan los datos de quien lo autoriza, de forma anónima y agrupada.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Nathalia Andrea Velasco</b> · Maestra por vocación, artista por pasión. Bogotá y virtual.</p>
+    <p><a href="https://nathaliaandreavelasco.com/" target="_blank" rel="noopener">nathaliaandreavelasco.com</a> · Para equipos y empresas: <a href="https://www.experienciasimone.com/" target="_blank" rel="noopener">experienciasimone.com</a></p>
+    <p class="small">Valores antes de IVA; con factura se suma el 19 %. Versión de octubre de 2026.</p>
+  </div>
+</footer>
+
+</body>
+</html>
