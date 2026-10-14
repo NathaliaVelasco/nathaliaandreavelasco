@@ -243,11 +243,11 @@ function clearStore(){ try{ localStorage.removeItem(STORE_KEY); }catch(e){} }
 function answered(){ return ITEMS.filter(function(it){ return typeof st.ans[it.id]==='number'; }).length; }
 
 var ARCH = {
-  lider:{n:'Líder al Borde', lupa:'Mira con atención tu energía y tu distancia en el trabajo, y el área de liderar personas.', pil:'Suelen aparecer “Sé fuerte” y “Apresúrate”.'},
-  promovido:{n:'Promovida o Promovido Autoexigente', lupa:'Mira con atención la voz del impostor y el área de liderar personas.', pil:'Suelen aparecer “Sé perfecto” y “Esfuérzate”.'},
-  desembarcado:{n:'Desembarcada o Desembarcado', lupa:'Mira con atención lo que frena tu paso (seguridad económica, la mirada de los demás y el día a día) y la voz del impostor.', pil:'Suelen aparecer “Sé fuerte” y “Esfuérzate”.'},
-  tejedora:{n:'Tejedora o Tejedor de Visiones', lupa:'Mira con atención el área del día a día y tus pilotos automáticos.', pil:'Suelen aparecer “Apresúrate” y “Esfuérzate”.'},
-  corazon:{n:'Corazón sin Palabras', lupa:'Mira con atención tu distancia con el entorno y tus pilotos automáticos.', pil:'Suelen aparecer “Complace a los demás” y “Sé fuerte”.'}
+  lider:{f:'Le doy todo al trabajo y siento que para sostenerlo estoy quemando mi salud y mi vida familiar.', n:'Líder al Borde', lupa:'Mira con atención tu energía y tu distancia en el trabajo, y el área de liderar personas.', pil:'Suelen aparecer “Sé fuerte” y “Apresúrate”.'},
+  promovido:{f:'Tengo las capacidades, pero me da terror que descubran que no soy suficiente.', n:'Promovida o Promovido Autoexigente', lupa:'Mira con atención la voz del impostor y el área de liderar personas.', pil:'Suelen aparecer “Sé perfecto” y “Esfuérzate”.'},
+  desembarcado:{f:'Mi valor estuvo pegado a una empresa o a un cargo. Ahora no sé quién soy sin esa estructura.', n:'Desembarcada o Desembarcado', lupa:'Mira con atención lo que frena tu paso (seguridad económica, la mirada de los demás y el día a día) y la voz del impostor.', pil:'Suelen aparecer “Sé fuerte” y “Esfuérzate”.'},
+  tejedora:{f:'Tengo mil hilos en las manos y muchas ideas, pero me pierdo en mi propio caos.', n:'Tejedora o Tejedor de Visiones', lupa:'Mira con atención el área del día a día y tus pilotos automáticos.', pil:'Suelen aparecer “Apresúrate” y “Esfuérzate”.'},
+  corazon:{f:'Siento mucho, pero no sé cómo decirlo. Y cuando lo digo, sale mal.', n:'Corazón sin Palabras', lupa:'Mira con atención tu distancia con el entorno y tus pilotos automáticos.', pil:'Suelen aparecer “Complace a los demás” y “Sé fuerte”.'}
 };
 
 var app = document.getElementById('app');
@@ -271,8 +271,8 @@ function welcome(){
    '<p class="hint">Son 103 preguntas, de 3 en 3. Te tomará entre 25 y 35 minutos. Responde con honestidad: no hay respuestas correctas. Si necesitas una pausa, tu avance queda guardado en este navegador.</p>'+
    (resume?'<div class="note warm"><strong>Tienes un diagnóstico en curso</strong><span>Llevas '+Object.keys(saved.ans).length+' de 103 respuestas'+(saved.name?' a nombre de '+esc(saved.name):'')+'.</span><div class="row"><button class="btn ink" id="resume">Continuar donde quedé</button><button class="link" id="fresh">Empezar de nuevo</button></div></div>':'')+
    '<label class="field" for="f-name">Tu nombre completo<input id="f-name" autocomplete="name" placeholder="Así aparecerá en tu mapa" value="'+esc(st.name)+'" data-focus></label>'+
-   '<label class="field" for="f-arch">Tu arquetipo en el ejercicio Mundo Interior (opcional)<select id="f-arch"><option value="">No lo sé o prefiero no decirlo</option>'+
-     Object.keys(ARCH).map(function(k){ return '<option value="'+k+'"'+(st.arch===k?' selected':'')+'>'+ARCH[k].n+'</option>'; }).join('')+'</select></label>'+
+   '<label class="field" for="f-arch">¿Con cuál de estas frases te identificas más? (opcional)<select id="f-arch"><option value="">Ninguna me representa del todo</option>'+
+     Object.keys(ARCH).map(function(k){ return '<option value="'+k+'"'+(st.arch===k?' selected':'')+'>'+ARCH[k].f+'</option>'; }).join('')+'</select></label>'+
    '<p class="hint" id="err" hidden style="color:var(--clay)"></p>'+
    '<div class="row"><button class="btn sun" id="start">Empezar</button></div>');
   if(resume){
