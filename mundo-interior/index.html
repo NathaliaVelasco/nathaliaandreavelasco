@@ -197,13 +197,42 @@ const B3=[
  ["¿Has pensado que eres una persona que no vale nada?",NEG],
  ["¿Te sientes razonablemente feliz, teniendo en cuenta todas las circunstancias?",["Más feliz que lo habitual","Igual que lo habitual","Menos feliz que lo habitual","Mucho menos feliz que lo habitual"]]];
 
-// Build the question list: 2 + 12 + 12 = 26
+// Bloque 4 · Tu motor (inspirado en la teoría de la autodeterminación de Deci y Ryan)
+const B4=[
+ {q:"Tu motor ante los retos cotidianos. Cuando te enfrentas a una situación difícil, pesada o con alta resistencia en tu día a día (laboral, personal o en un proyecto), ¿cuál suele ser tu principal impulso para seguir adelante?",o:[
+  "La presión externa, las obligaciones impuestas o el miedo a las consecuencias de no hacerlo.",
+  "La expectativa de recibir una recompensa, un reconocimiento o una validación externa.",
+  "El compromiso con mis responsabilidades y el deseo de cumplir con lo que se espera de mí.",
+  "Un profundo sentido personal, mi propósito de vida o la convicción genuina de que lo que hago vale la pena por sí mismo."]},
+ {q:"El disfrute y la energía en tus actividades. Pensando en cómo inviertes tu tiempo en tus diferentes facetas (trabajo, pasiones, relaciones, autocuidado), ¿cómo describirías la sensación que te producen?",o:[
+  "Siento que es una carga pesada y que la mayor parte del tiempo sobrevivo al día.",
+  "Lo hago por inercia o rutina; no me entusiasma demasiado, pero tampoco me desagrada.",
+  "Encuentro satisfacción cuando veo resultados concretos o cuando el deber está cumplido.",
+  "Me generan bienestar y disfrute en el proceso mismo; muchas veces pierdo la noción del tiempo porque conecto con lo que amo."]},
+ {q:"La coherencia entre tu esencia y tu entorno. ¿Qué tan reflejado o reflejada sientes tu estilo de vida actual (decisiones, ocupaciones y hábitos) en quien eres realmente?",o:[
+  "Siento que represento un papel muy ajeno a mi esencia y que me estoy traicionando a mí mismo o a mí misma.",
+  "Hay un desfase importante; hago muchas cosas por inercia o por encajar en lo que otros esperan.",
+  "Noto un balance aceptable: cumplo con mis roles y, a la vez, guardo espacios para lo que me gusta.",
+  "Hay una alta coherencia; siento que mi vida y mis ocupaciones son un reflejo auténtico de mis valores y mi identidad."]},
+ {q:"La fuente de tu energía vital. Cuando estás a solas contigo y piensas en tu futuro a mediano plazo, ¿de dónde nace principalmente el deseo de construir, crecer y avanzar?",o:[
+  "No lo tengo muy claro; a veces siento que solo avanzo por inercia, sin un rumbo propio.",
+  "Nace de la necesidad de estabilidad económica o de cumplir con las expectativas del entorno.",
+  "Nace de metas y objetivos específicos que me he trazado para alcanzar logros concretos.",
+  "Nace de una chispa interna, de mis ganas de explorar, aprender, aportar y florecer desde mi propia libertad."]}];
+const MOTORES=[
+ {n:"Motor en pausa",m:"Hoy avanzas más por presión o por inercia que por ganas. No es pereza ni falta de carácter: es una señal de que el cansancio apagó tu chispa. Primero hay que recuperar energía; el sentido vuelve después.",s:"oasis"},
+ {n:"Motor del deber",m:"Te mueve el compromiso y lo que se espera de ti. Es un motor noble, pero si es el único, se gasta. Vale la pena preguntarte qué de lo que haces es tuyo de verdad.",s:"despertar"},
+ {n:"Motor del logro",m:"Te mueven las metas y los resultados concretos. Cuida que el logro no se vuelva la única medida de tu valor: el disfrute del camino también cuenta.",s:"despertar"},
+ {n:"Motor propio",m:"Te mueve una chispa interna: propósito, curiosidad, ganas de aportar. Es tu mayor recurso. Si además sientes cansancio, no es falta de motivación: necesitas una pausa para que esa chispa no se queme.",s:"oasis"}];
+
+// Build the question list: 2 + 12 + 12 + 4 = 30
 const Q=[];
 B1.forEach((x,i)=>Q.push({block:1,num:i+1,text:x.q,opts:x.o,keys:"ABCDE"}));
 B2.forEach((t,i)=>Q.push({block:2,num:i+3,text:t,yn:true}));
 B3.forEach(([t,o],i)=>Q.push({block:3,num:i+15,text:t,opts:o,keys:"abcd"}));
-const BLOCKS={1:"Bloque 1 · Tu momento",2:"Bloque 2 · Indicadores de agotamiento y sobrecarga",3:"Bloque 3 · Cómo te has sentido"};
-const BHINT={1:"Elige la opción con la que más te identifiques hoy.",2:"Responde según tu realidad de las últimas dos semanas.",3:"Compara cómo te has sentido últimamente con tu estado habitual."};
+B4.forEach((x,i)=>Q.push({block:4,num:i+27,text:x.q,opts:x.o,keys:"ABCD"}));
+const BLOCKS={1:"Bloque 1 · Tu momento",2:"Bloque 2 · Indicadores de agotamiento y sobrecarga",3:"Bloque 3 · Cómo te has sentido",4:"Bloque 4 · Tu motor"};
+const BHINT={1:"Elige la opción con la que más te identifiques hoy.",2:"Responde según tu realidad de las últimas dos semanas.",3:"Compara cómo te has sentido últimamente con tu estado habitual.",4:"Elige la opción que más se parezca a ti hoy."};
 
 const ARCH=[
  {n:"Líder al Borde",w:"Sobrecarga",f:"Sostener no debería costarte la salud ni el tiempo con los tuyos. Empezar por una pausa también es liderar.",oasis:"Bioliberación facial"},
@@ -280,9 +309,10 @@ function intro(){spiral(0);render(`
   <div><b>Bloque 1 · Tu momento.</b> Dos preguntas que identifican tu arquetipo: la forma particular en que tú vives la carga.</div>
   <div><b>Bloque 2 · Indicadores de agotamiento.</b> Doce señales de sobrecarga que respondes con SÍ o NO según tu realidad de las últimas dos semanas.</div>
   <div><b>Bloque 3 · Cómo te has sentido.</b> Doce preguntas inspiradas en el Cuestionario de Salud General de Goldberg (GHQ-12). Este bloque define tu nivel y tu ruta.</div>
+  <div><b>Bloque 4 · Tu motor.</b> Cuatro preguntas sobre qué te impulsa a seguir adelante, inspiradas en la teoría de la autodeterminación de Deci y Ryan. No cambian tu nivel: te muestran de dónde sale tu energía.</div>
   <div><b>Tu resultado.</b> Al terminar ves tu nivel, tu arquetipo, un ejercicio de arte y respiración para hacer mientras nos vemos, y el camino de acompañamiento que te propongo.</div></div>
  <div class="note"><strong>Antes de empezar</strong><span>Este ejercicio no es un diagnóstico médico ni psicológico y no reemplaza una cita con psicología o con tu médico. Si estás en un proceso con un profesional de la salud, mi trabajo acompaña y complementa ese camino.</span><span>Si en este momento sientes que no puedes más, busca ayuda ahora: Línea 106 (Bogotá) · Línea Púrpura 018000 112 137 (mujeres) · 123 (emergencias).</span></div>
- <p class="hint">Te tomará unos 5 minutos. No hay respuestas correctas ni incorrectas.</p>
+ <p class="hint">Son 30 preguntas cortas: te tomará entre 5 y 6 minutos. No hay respuestas correctas ni incorrectas.</p>
  <button class="btn" id="go" data-focus>Empezar</button>`);
  document.getElementById("go").onclick=()=>go(0);}
 
@@ -319,14 +349,16 @@ function care(){render(`
 function compute(){
  const a1=ans[0],a2=ans[1]; const arch=a1===a2?a2:a2;
  let score=0; for(let n=15;n<=26;n++){if(ans[idx(n)]>=2)score++}
- let lvl=score<=2?1:score<=5?2:3;
+ let lvl=score<=3?1:score<=7?2:3;
  const yes=[];for(let n=3;n<=14;n++){if(ans[idx(n)]===1)yes.push(n)}
- const raised=yes.length>=8&&lvl<3; if(yes.length>=8)lvl=Math.min(3,lvl+1);
- const flag=isFlagged(); if(flag)lvl=3;
+ const raised=yes.length>=8&&lvl===1; if(raised)lvl=2;
+ const flag=isFlagged(); if(ans[idx(25)]===3)lvl=3;
+ let mt=0;for(let n=27;n<=30;n++){mt+=ans[idx(n)]||0}
+ const motor=mt<=3?0:mt<=6?1:mt<=9?2:3;
  const dims=[["tu energía",[4,7,8,13,14]],["tu conexión con quienes te rodean",[3,5,6,10]],["el sentido y el valor de lo que haces",[9,11]]]
   .map(([n,qs],k)=>[n,qs.filter(q=>yes.includes(q)).length/qs.length,k]).filter(d=>d[1]>0).sort((a,b)=>b[1]-a[1]);
  const body=yes.some(n=>n>=12);
- return {arch,score,lvl,yes:yes.length,raised,flag,dim:dims[0]?.[0],dimIdx:dims[0]?dims[0][2]:"",body};}
+ return {arch,score,lvl,yes:yes.length,raised,flag,motor,mt,dim:dims[0]?.[0],dimIdx:dims[0]?dims[0][2]:"",body};}
 
 function result(){
  window.gcEvento&&gcEvento("mundo-interior-completado","Terminó Mundo Interior");
@@ -335,7 +367,7 @@ function result(){
  if(r.lvl===3){
   path=`<div class="step first"><span class="n">1</span><p><b>Una cita con psicología o tu médico</b><small>Es el primer acompañamiento. Si ya estás en un proceso, cuéntale a tu profesional cómo te sientes hoy.</small></p></div>
    <div class="step"><span class="n">2</span><p><b>Oasis Regenerativo, como complemento</b><small>Un espacio de drenaje emocional: una liberación consciente y segura de la tensión, la frustración y la carga acumuladas, que ayuda a que el estrés no se convierta en colapso físico y mental. Un camino para reparar y regenerar tu energía. Técnica sugerida para ti: ${A.oasis}.</small></p></div>
-   <div class="step"><span class="n">3</span><p><b>Después, El Despertar Interior</b><small>Cuando ya cuentes con acompañamiento profesional, un proceso de 6 sesiones para ordenar lo que pesa.</small></p></div>`;
+   <div class="step"><span class="n">3</span><p><b>Después, El Despertar Interior</b><small>Cuando ya cuentes con acompañamiento profesional, sesiones de 90 minutos, a tu ritmo, para ordenar lo que pesa.</small></p></div>`;
  } else {
   path=MATRIX[r.arch][r.lvl-1].map((k,j)=>{const s=SVC[k];const extra=k==="oasis"?` Técnica sugerida para ti: ${A.oasis}.`:"";return `<div class="step"><span class="n">${j+1}</span><p><b>${s[0]}</b><small>${s[1]}${extra}</small></p></div>`}).join("")
    +`<div class="step"><span class="n">${MATRIX[r.arch][r.lvl-1].length+1}</span><p><b>Para sostener lo que siembras</b><small>El Origen · Cuatro Estaciones y La Ventana, mi boletín en LinkedIn.</small></p></div>`;
@@ -344,7 +376,7 @@ function result(){
  if(r.dim)notes.push(`Tus respuestas muestran que el cansancio se concentra sobre todo en <b>${r.dim}</b>. Por ahí empezaremos a conversar.`);
  if(r.body)notes.push(`Mencionaste señales en tu cuerpo, tu sueño o tus hábitos. Te recomiendo también una consulta médica para revisarlas.`);
  if(r.lvl===2)notes.push(`Si el malestar se mantiene o crece, conversa también con un profesional de la salud.`);
- const waText=encodeURIComponent(`Hola Nathalia, hice el ejercicio Estado del Mundo Interior. Mi resultado fue Nivel ${r.lvl} · ${Lv.name}, y me identifiqué con ${A.n}. Me gustaría conversar.`);
+ const waText=encodeURIComponent(`Hola Nathalia, hice el ejercicio Estado del Mundo Interior. Mi resultado fue Nivel ${r.lvl} · ${Lv.name}, me identifiqué con ${A.n} y mi motor es ${MOTORES[r.motor].n}. Me gustaría conversar.`);
  render(`
   ${r.flag?`<div class="note alert"><strong>Primero, tu cuidado</strong><span>Si sientes que no puedes más, busca ayuda ahora. No tienes que esperar a nadie para hacerlo.</span>${HELP}</div>`:""}
   <div class="level">
@@ -355,6 +387,7 @@ function result(){
   </div>
   <div class="arch"><span class="mark">${"ABCDE"[r.arch]}</span><div><span class="eyebrow">Te identificaste con</span><h3>${A.n} · ${A.w}</h3><q>${A.f}</q></div></div>
   ${notes.length?`<div class="stack" style="gap:8px">${notes.map(n=>`<p>${n}</p>`).join("")}</div>`:""}
+  <div class="arch"><span class="mark">${r.motor+1}</span><div><span class="eyebrow">Tu motor</span><h3>${MOTORES[r.motor].n}</h3><q>${MOTORES[r.motor].m}</q>${r.lvl<3?`<p class="hint" style="font-style:normal;margin-top:8px">Para tu motor te sugiero empezar por <b>${SVC[MOTORES[r.motor].s][0]}</b>.</p>`:""}</div></div>
 
   <div class="section-h"><span class="eyebrow">Mientras nos vemos</span><h2>${E.title}</h2><p class="hint" style="font-style:normal">${E.goal}</p></div>
   ${E.cards.map((c,k)=>`<article class="action" id="card${k}">
@@ -407,7 +440,7 @@ function setupSave(r){
  const $=id=>document.getElementById(id), aut=$("s-aut"), btn=$("s-send"), msg=$("s-msg");
  const okMail=x=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(x);
  const label=()=>{const m=$("s-correo").value.trim();btn.textContent=aut.checked?(m?"Enviar mi resultado":"Enviar a Nathalia"):"Enviarme mi resultado"};
- aut.onchange=()=>{msg.hidden=true;$("s-extra").hidden=!aut.checked;$("s-hint").textContent=aut.checked?"Nathalia recibirá tu nombre, tu contacto, tu nivel, tu arquetipo y el puntaje de cada bloque. No recibe tus respuestas una por una.":"Si no marcas la casilla, no se guarda nada: tu correo solo se usa para enviarte este resultado.";label()};
+ aut.onchange=()=>{msg.hidden=true;$("s-extra").hidden=!aut.checked;$("s-hint").textContent=aut.checked?"Nathalia recibirá tu nombre, tu contacto, tu nivel, tu arquetipo, tu motor y el puntaje de cada bloque. No recibe tus respuestas una por una.":"Si no marcas la casilla, no se guarda nada: tu correo solo se usa para enviarte este resultado.";label()};
  $("s-correo").oninput=()=>{msg.hidden=true;label()};
  ["s-nombre","s-tel"].forEach(id=>$(id).oninput=()=>{msg.hidden=true});
  const show=(t,bad)=>{msg.hidden=false;msg.textContent=t;msg.classList.toggle("bad",!!bad)};
@@ -420,7 +453,7 @@ function setupSave(r){
   btn.disabled=true;btn.textContent="Enviando…";
   const d=new URLSearchParams({tipo:"resultado",enviar:correo?"si":"no",correo,autoriza:aut.checked?"si":"no",
    nombre:aut.checked?nombre:"",tel:aut.checked?tel:"",nivel:r.lvl,arq:r.arch,b2:r.yes,b3:r.score,
-   alerta:r.flag?"si":"no",dim:r.dimIdx,cuerpo:r.body?"si":"no",web:$("s-web").value});
+   alerta:r.flag?"si":"no",motor:MOTORES[r.motor].n,motorPts:r.mt,dim:r.dimIdx,cuerpo:r.body?"si":"no",web:$("s-web").value});
   fetch(HOJA_URL,{method:"POST",mode:"no-cors",body:d}).then(()=>{
    btn.textContent="Enviado";
    show((correo?"Listo. Tu resultado llegará a "+correo+" en unos minutos; si no lo ves, revisa la carpeta de spam. ":"")+(aut.checked?"Nathalia recibió tu resultado y te escribirá para conversar.":""));
