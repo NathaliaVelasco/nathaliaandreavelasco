@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Un test gratuito de 5 minutos para saber cómo estás: tu nivel de estrés y agotamiento, tu arquetipo y un ejercicio de arte y respiración para hacer hoy.">
-<meta property="og:title" content="Test de estrés y agotamiento gratis · Mundo Interior">
+<meta property="og:title" content="Mundo Interior · Test gratuito de estrés y agotamiento">
 <meta property="og:description" content="Un test gratuito de 5 minutos para saber cómo estás: tu nivel de estrés y agotamiento, tu arquetipo y un ejercicio de arte y respiración para hacer hoy.">
 <meta property="og:type" content="website">
 <link rel="icon" href="../img/favicon.png">
 <style>img{max-width:100%}[hidden]{display:none!important}body{margin:0}</style>
-<title>Test de estrés y agotamiento gratis · Mundo Interior</title>
+<title>Mundo Interior · Test gratuito de estrés y agotamiento</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
@@ -86,6 +86,9 @@ a.btn{text-decoration:none;display:inline-block}
 .dots{display:flex;gap:6px}
 .dots span{width:34px;height:6px;border-radius:3px;background:currentColor;opacity:.25}
 .dots span.on{opacity:1;background:var(--sun)}
+.lectura{display:flex;flex-direction:column;gap:10px;align-items:flex-start;background:var(--sun-soft,#FDF1E2);border:1.5px solid var(--sun);border-radius:22px;padding:24px}
+.lectura h3{margin:0}
+.lectura p{margin:0}
 .arch{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:start;border-top:1px solid var(--line);padding-top:20px}
 .arch .mark{width:46px;height:46px;border-radius:50%;background:var(--tint);display:grid;place-items:center;color:var(--teal-2);font-weight:700}
 .arch q{display:block;font-style:italic;font-size:19px;color:var(--teal);quotes:none;margin-top:4px}
@@ -301,8 +304,8 @@ function esc(s){return s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"
 function render(html){app.innerHTML=`<div class="stack fade">${html}</div>`;window.scrollTo({top:0});const f=app.querySelector("[data-focus]");if(f)f.focus({preventScroll:true})}
 
 function intro(){spiral(0);render(`
- <span class="eyebrow">Un ejercicio para observarte</span>
- <h1>Estado del <em>Mundo Interior</em></h1>
+ <span class="eyebrow">Test gratuito de estrés y agotamiento</span>
+ <h1><em>Mundo Interior</em></h1>
  <p class="lead">Un mapa de lectura rápida sobre cómo te has sentido en las últimas dos semanas. No evalúa tu personalidad: te ayuda a mirar dónde estás para elegir el acompañamiento que mejor te sirve. Al terminar recibes tu resultado y un ejercicio para hacer mientras nos vemos.</p>
  <div class="how">
   <h3>Cómo funciona este termómetro</h3>
@@ -376,7 +379,8 @@ function result(){
  if(r.dim)notes.push(`Tus respuestas muestran que el cansancio se concentra sobre todo en <b>${r.dim}</b>. Por ahí empezaremos a conversar.`);
  if(r.body)notes.push(`Mencionaste señales en tu cuerpo, tu sueño o tus hábitos. Te recomiendo también una consulta médica para revisarlas.`);
  if(r.lvl===2)notes.push(`Si el malestar se mantiene o crece, conversa también con un profesional de la salud.`);
- const waText=encodeURIComponent(`Hola Nathalia, hice el ejercicio Estado del Mundo Interior. Mi resultado fue Nivel ${r.lvl} · ${Lv.name}, me identifiqué con ${A.n} y mi motor es ${MOTORES[r.motor].n}. Me gustaría conversar.`);
+ const waLect=encodeURIComponent(`Hola Nathalia, hice el test Mundo Interior. Mi resultado fue Nivel ${r.lvl} · ${Lv.name}, me identifiqué con ${A.n} y mi motor es ${MOTORES[r.motor].n}. Quiero los 20 minutos para leer juntos mi resultado.`);
+ const waText=encodeURIComponent(`Hola Nathalia, hice el test Mundo Interior. Mi resultado fue Nivel ${r.lvl} · ${Lv.name}, me identifiqué con ${A.n} y mi motor es ${MOTORES[r.motor].n}. Me gustaría conversar.`);
  render(`
   ${r.flag?`<div class="note alert"><strong>Primero, tu cuidado</strong><span>Si sientes que no puedes más, busca ayuda ahora. No tienes que esperar a nadie para hacerlo.</span>${HELP}</div>`:""}
   <div class="level">
@@ -388,6 +392,14 @@ function result(){
   <div class="arch"><span class="mark">${"ABCDE"[r.arch]}</span><div><span class="eyebrow">Te identificaste con</span><h3>${A.n} · ${A.w}</h3><q>${A.f}</q></div></div>
   ${notes.length?`<div class="stack" style="gap:8px">${notes.map(n=>`<p>${n}</p>`).join("")}</div>`:""}
   <div class="arch"><span class="mark">${r.motor+1}</span><div><span class="eyebrow">Tu motor</span><h3>${MOTORES[r.motor].n}</h3><q>${MOTORES[r.motor].m}</q>${r.lvl<3?`<p class="hint" style="font-style:normal;margin-top:8px">Para tu motor te sugiero empezar por <b>${SVC[MOTORES[r.motor].s][0]}</b>.</p>`:""}</div></div>
+  <div class="lectura">
+   <span class="eyebrow">Leamos juntos tu resultado</span>
+   <h3>20 minutos, sin costo, para mirar tu resultado conmigo</h3>
+   ${r.lvl===3
+     ?`<p>Tu resultado merece una conversación, no solo una lectura. En 20 minutos lo miramos juntos y decidimos el siguiente paso. Si lo que vives necesita primero el apoyo de psicología o de tu médico, te lo diré con claridad y te ayudaré a encontrarlo.</p>`
+     :`<p>Por WhatsApp o videollamada te ayudo a entender tu nivel, tu arquetipo y tu motor, y elegimos juntos por dónde empezar. Sin compromiso.</p>`}
+   <a class="btn sun" href="https://wa.me/${WA}?text=${waLect}" target="_blank" rel="noopener" onclick="try{gcEvento('lectura-20-min','Pidió la lectura de 20 minutos')}catch(e){}">Quiero mis 20 minutos</a>
+  </div>
 
   <div class="section-h"><span class="eyebrow">Mientras nos vemos</span><h2>${E.title}</h2><p class="hint" style="font-style:normal">${E.goal}</p></div>
   ${E.cards.map((c,k)=>`<article class="action" id="card${k}">
