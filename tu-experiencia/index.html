@@ -201,6 +201,15 @@ textarea{min-height:96px;resize:vertical}
 .delta b{font-size:22px;font-variant-numeric:tabular-nums}
 @media (max-width:560px){.delta{grid-template-columns:1fr}}
 .trap{position:absolute;left:-9999px}
+.stay{display:flex;flex-direction:column;gap:14px;margin-top:12px}
+.stay h2{margin:0;font-size:26px;font-weight:400}
+.stay-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.stay-card{display:flex;flex-direction:column;gap:8px;background:var(--white);border:1.5px solid var(--line);border-radius:20px;padding:22px;text-decoration:none;color:var(--ink)}
+.stay-card:hover{border-color:var(--sun)}
+.stay-card b{font-size:19px}
+.stay-card span{font-size:16px;color:var(--ink-2)}
+.stay-card em{font-style:normal;font-weight:600;color:var(--clay)}
+@media (max-width:560px){.stay-grid{grid-template-columns:1fr}}
 </style>
 <section class="wrap">
 <form class="xp" id="xp" novalidate>
@@ -270,7 +279,22 @@ textarea{min-height:96px;resize:vertical}
   <h1>Tu experiencia ya está conmigo</h1>
   <p class="intro" id="doneMsg"></p>
   <div class="delta" id="delta"></div>
-  <p>Si quieres seguir, <a href="../mundo-interior/">el ejercicio Mundo Interior</a> te muestra tu siguiente paso.</p>
+  <div class="stay">
+    <p class="eyebrow">Sigamos en contacto</p>
+    <h2>Que la pausa no se quede aquí</h2>
+    <div class="stay-grid">
+      <a class="stay-card" href="https://chat.whatsapp.com/LZsbZHGgBQr6CVT4aDGGJX" target="_blank" rel="noopener" onclick="try{gcEvento('grupo-whatsapp','Se unió al grupo de WhatsApp')}catch(e){}">
+        <b>Únete a mi grupo de WhatsApp</b>
+        <span>Ahí publico primero los talleres, los laboratorios y las fechas de El Origen, gratuitos y pagos.</span>
+        <em>Unirme al grupo →</em>
+      </a>
+      <a class="stay-card" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7427823370450198528" target="_blank" rel="noopener" onclick="try{gcEvento('la-ventana','Se suscribió a La Ventana')}catch(e){}">
+        <b>Lee La Ventana</b>
+        <span>Mi boletín en LinkedIn: reflexiones y ejercicios para cuidar tu mundo interior entre una sesión y otra.</span>
+        <em>Suscribirme →</em>
+      </a>
+    </div>
+  </div>
 </div>
 </section>
 
